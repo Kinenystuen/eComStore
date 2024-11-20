@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { sidebarLinks } from "../../../library/constants";
+import { headerNavLinks } from "../../../library/constants";
 
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import CloseBtn from "../CloseBtn";
@@ -25,7 +25,7 @@ const HeaderNav = () => {
         </div>
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:gap-8">
-          {sidebarLinks.map((link: INavLink) => {
+          {headerNavLinks.map((link: INavLink) => {
             const isActive = pathname === link.route;
             return (
               <NavLink
@@ -72,7 +72,7 @@ const HeaderNav = () => {
         }`}
       >
         {/* Mobile Menu Header */}
-        <div className="flex items-center justify-end p-6">
+        <div className="flex items-center justify-end p-2">
           <CloseBtn
             action={() => setMobileMenuOpen(false)}
             message="Close menu"
@@ -80,8 +80,8 @@ const HeaderNav = () => {
         </div>
 
         {/* Mobile Navigation Links */}
-        <div className="py-6 px-6">
-          {sidebarLinks.map((link: INavLink) => {
+        <div className="py-0 px-6">
+          {headerNavLinks.map((link: INavLink) => {
             const isActive = pathname === link.route;
             return (
               <NavLink
