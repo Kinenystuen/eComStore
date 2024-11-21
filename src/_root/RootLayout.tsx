@@ -12,9 +12,9 @@ const RootLayout = () => {
       <HeaderBar />
 
       {/* Main Section */}
-      <section className="container mx-auto px-4 mb-8 flex-grow mt-14 lg:mt-20">
+      <main className="container mx-auto px-4 mb-8 flex-grow mt-14 lg:mt-20">
         <Outlet />
-      </section>
+      </main>
 
       {/* Footer */}
       <FooterBar />
