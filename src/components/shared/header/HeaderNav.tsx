@@ -15,7 +15,7 @@ const HeaderNav = () => {
     <>
       <nav
         aria-label="Global"
-        className="flex items-center justify-between p-3 lg:px-8 lg:bg-white lg:shadow-md"
+        className="flex items-center justify-between p-3 lg:bg-white lg:shadow-md"
       >
         {/* Logo Section */}
         <div className="flex lg:flex-1">
@@ -33,7 +33,7 @@ const HeaderNav = () => {
                 to={link.route}
                 className={`py-2 px-3 text-sm font-semibold ${
                   isActive
-                    ? "text-white bg-blue-500 rounded-lg"
+                    ? "bg-blue-500 text-white hover:text-gray-800 rounded-lg"
                     : "text-gray-700 hover:bg-gray-100 hover:rounded-lg"
                 }`}
               >
