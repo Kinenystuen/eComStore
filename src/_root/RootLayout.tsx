@@ -12,7 +12,7 @@ const RootLayout = () => {
       <HeaderBar />
 
       {/* Main Section */}
-      <section className="flex-grow mt-14 lg:mt-20">
+      <section className="container mx-auto px-4 mb-8 flex-grow mt-14 lg:mt-20">
         <Outlet />
       </section>
 
