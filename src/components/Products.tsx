@@ -1,42 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useApi } from "../hooks/UseApi";
+import { Product } from "../library/types";
+import Loader from "./shared/ui/Loader";
+import DisplayData from "./display/DisplayData";
 
 const Products: React.FC = () => {
+  const { data, isLoading, isError } = useApi<Product[]>(
+    "https://v2.api.noroff.dev/online-shop"
+  );
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [data, setData] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
 
-  const fetchData = async (query: string = "") => {
-    setIsLoading(true);
-    setIsError(false);
+  // Filtering products based on search query
+  const filteredData = data?.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-    try {
-      const response = await fetch(
-        `https://v2.api.noroff.dev/online-shop?q=${query}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch");
-      }
-      const result: Product[] = await response.json();
-      setData(result);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  if (isLoading) {
+    return <Loader />;
+  }
 
-  useEffect(() => {
-    fetchData(searchQuery);
-  }, [searchQuery]);
+  if (isError) {
+    return <div>Error fetching data...</div>;
+  }
 
   return (
     <div>
-      <SearchBar onSearch={(query) => setSearchQuery(query)} />
-      {isLoading && <Loader />}
-      {isError && <div>Error fetching data...</div>}
-      {!isLoading && !isError && <DisplayData data={data} />}
+      {/* Search Bar */}
+      <div className="flex items-center gap-2 p-4">
+        <input
+          type="text"
+          placeholder="Search for products..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="border border-gray-300 rounded px-4 py-2 w-full"
+        />
+      </div>
+
+      {/* Display Data */}
+      {filteredData && filteredData.length > 0 ? (
+        <DisplayData data={filteredData} />
+      ) : (
+        <div className="p-4">No products found.</div>
+      )}
     </div>
   );
 };
