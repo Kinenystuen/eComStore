@@ -1,5 +1,21 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
+/* Typographic props */
+export type H1Props = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+/* Button props */
+export type ButtonProps = {
+  ButtonType?: "primary" | "secondary";
+  onClick: () => void;
+  children: React.ReactNode;
+  className?: string;
+  title?: string;
+  ariaLabel?: string;
+};
+
 export type INavLink = {
   icon: IconDefinition;
   title: string;
@@ -20,5 +36,24 @@ export interface CloseBtnProps {
   message: string;
 }
 
+export interface CartItem {
+  id: string;
+  title: string;
+  price: number;
+  quantity: number;
+}
 
+export interface Product {
+  id: string;
+  title: string;
+  price: number;
+  discountedPrice: number;
+  image: { url: string; alt?: string };
+  tags: string[];
+  description: string;
+  rating: number;
+}
 
+export interface LoaderProps {
+  theme?: "light" | "dark";
+}
