@@ -6,8 +6,12 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import CloseBtn from "../CloseBtn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { INavLink } from "../../../library/types";
+import CartIcon from "./CartIcon";
+import ThemeToggle from "../../ThemeToggle";
+import Button from "../Button";
+import H1 from "../Typography/H1";
 
-const HeaderNav = () => {
+const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
@@ -15,16 +19,16 @@ const HeaderNav = () => {
     <>
       <nav
         aria-label="Global"
-        className="flex items-center justify-between p-3 lg:bg-white lg:shadow-md"
+        className="flex items-center justify-between p-3 mt-0 lg:bg-customBg dark:bg-customBgDark lg:shadow-md"
       >
         {/* Logo Section */}
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <h1 className="text-lg">eCom store</h1>
+            <H1 className="text-lg">eCom store</H1>
           </Link>
         </div>
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-8">
+        <div className="hidden lg:flex lg:gap-2  mx-2">
           {headerNavLinks.map((link: INavLink) => {
             const isActive = pathname === link.route;
             return (
@@ -33,8 +37,8 @@ const HeaderNav = () => {
                 to={link.route}
                 className={`py-2 px-3 text-sm font-semibold ${
                   isActive
-                    ? "bg-blue-500 text-white hover:text-gray-800 rounded-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:rounded-lg"
+                    ? "bg-blue-500 text-white hover:text-gray-800 dark:bg-customBgDark-400 dark:text-gray-100 dark:hover:text-white rounded-lg"
+                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-customBgDark-400 hover:rounded-lg"
                 }`}
               >
                 <span className="sr-only">{link.title}</span>
@@ -45,29 +49,31 @@ const HeaderNav = () => {
           })}
         </div>
 
-        {/* Login Button */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/login" className="text-sm font-semibold text-gray-700">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
+        {/* Mobilmeny-knapp og CartIcon */}
+        <div className="flex items-center gap-4 lg:flex lg:flex-1 lg:justify-end">
+          {/* Theme Toggle */}
+          <div>
+            <ThemeToggle />
+          </div>
+          {/* Cart Icon */}
+          <div className="flex items-center">
+            <CartIcon itemCount={cartItemCount} />
+          </div>
 
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          {/* Mobile menu-btn */}
+          <Button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="block lg:hidden -m-2 p-2 text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-100 focus:outline-none"
           >
+            <Bars3Icon className="h-6 w-6" />
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-          </button>
+          </Button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-x-0 top-0 z-50 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-x-0 top-0 z-50 bg-white dark:bg-customBgDark-500 shadow-lg transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -80,7 +86,7 @@ const HeaderNav = () => {
         </div>
 
         {/* Mobile Navigation Links */}
-        <div className="py-0 px-6">
+        <div className="py-0 px-6 mb-">
           {headerNavLinks.map((link: INavLink) => {
             const isActive = pathname === link.route;
             return (
@@ -90,8 +96,8 @@ const HeaderNav = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-2 px-3 rounded-lg text-base font-semibold ${
                   isActive
-                    ? "bg-blue-500 text-white hover:text-gray-800"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-blue-500 text-white hover:text-gray-800 dark:text-whiteFont-500 dark:hover:text-whiteFont-100"
+                    : "text-gray-700 hover:bg-gray-100 dark:text-whiteFont-600 dark:hover:text-white dark:hover:bg-customBgDark-400"
                 }`}
               >
                 <span className="sr-only">{link.title}</span>
@@ -100,17 +106,6 @@ const HeaderNav = () => {
               </NavLink>
             );
           })}
-        </div>
-
-        {/* Mobile Login Button */}
-        <div className="py-6 px-6">
-          <Link
-            to="/login"
-            className="block px-3 py-2 text-base font-semibold text-gray-700 hover:bg-gray-10 rounded-lg"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Log in
-          </Link>
         </div>
       </div>
     </>
