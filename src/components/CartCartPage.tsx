@@ -15,7 +15,7 @@ const CartPageDisplay = () => {
   );
 
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto mt-8">
       <H1 className="text-2xl font-bold mb-6">Your Cart</H1>
       {state.items.length === 0 ? (
         <div className="flex flex-col gap-2">
@@ -32,7 +32,7 @@ const CartPageDisplay = () => {
             {state.items.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between border dark:border-customBgDark-400 p-4 rounded-lg"
+                className="flex items-center justify-between border dark:border-customBgDark-400 p-2 rounded-lg"
               >
                 {/* Image */}
                 <img
@@ -55,16 +55,16 @@ const CartPageDisplay = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-end gap-2 flex-wrap">
                   <Button
                     onClick={() => decrementItem(item.id)}
-                    className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                    className="px-3 py-1 rounded"
                   >
                     -
                   </Button>
                   <Button
                     onClick={() => incrementItem(item.id)}
-                    className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                    className="px-3 py-1 rounded"
                   >
                     +
                   </Button>
