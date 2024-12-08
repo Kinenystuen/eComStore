@@ -17,19 +17,6 @@ interface BreadcrumbProps {
   items: BreadcrumbItem[];
 }
 
-/* Breadcrumb items */
-// const breadcrumbItems = [
-//   { label: "Home", href: "/" },
-//   {
-//     label: "Site",
-//     isDropdown: true,
-//     dropdownItems: [
-//       { label: "Site", href: "/path/path" },
-//       { label: "Site", href: "/path/path" }
-//     ]
-//   }
-// ];
-
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   const navigate = useNavigate();
 
