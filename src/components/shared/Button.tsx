@@ -1,7 +1,6 @@
 import { ButtonProps } from "../../library/types";
 
 function Button({
-  ButtonType,
   onClick,
   children,
   className,
