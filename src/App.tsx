@@ -3,6 +3,8 @@ import "./App.css";
 import RootLayout from "./_root/RootLayout";
 import Home from "./_root/pages/Home";
 import Contact from "./_root/pages/Contact";
+import ProductPage from "./_root/pages/ProductPage";
+import CartPage from "./_root/pages/CartPage";
 
 function App() {
   return (
@@ -11,10 +13,14 @@ function App() {
         {/* Public routes */}
         <Route element={<RootLayout />}>
           <Route index element={<Home />} />
-          <Route path="product/:id" element={<div>Product id</div>} />
-          <Route path="cart" element={<div>Cart</div>} />
+          <Route path="product/:id" element={<ProductPage />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<div>Route not found</div>} />
+          <Route path="cart" element={<CartPage />} />
+          <Route
+            path="checkout-success"
+            element={<div>Checkout-page is coming</div>}
+          />
+          <Route path="*" element={<div>Site not found</div>} />
         </Route>
       </Routes>
     </>
