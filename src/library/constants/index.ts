@@ -1,4 +1,4 @@
-import { faHome, faContactBook, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faContactBook } from '@fortawesome/free-solid-svg-icons';
 
 export const headerNavLinks = [
   {
@@ -8,15 +8,10 @@ export const headerNavLinks = [
     label: "Home",
   },
   {
-    icon: faCartShopping,
-    title: "Cart",
-    route: "/cart",
-    label: "Cart",
-  },
-  {
     icon: faContactBook,
     title: "Contact",
     route: "/contact",
     label: "Contact",
   },
 ];
+
