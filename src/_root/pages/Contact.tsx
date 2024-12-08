@@ -6,7 +6,7 @@ function Contact() {
   const {
     register,
     formState: { errors },
-    handleSubmit,
+    handleSubmit
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
@@ -14,12 +14,12 @@ function Contact() {
   };
 
   return (
-    <div className="container mx-auto p-8 max-w-lg bg-white rounded-lg shadow-lg my-5">
+    <div className="container mx-auto p-8 max-w-lg bg-white dark:bg-customBgDark-600 rounded-lg shadow-lg my-5">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Full Name */}
         <label
           htmlFor="fullname"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-whiteFont-200"
         >
           Full Name
         </label>
@@ -29,11 +29,11 @@ function Contact() {
             minLength: { value: 3, message: "Minimum length is 3 characters." },
             maxLength: {
               value: 50,
-              message: "Maximum length is 50 characters.",
-            },
+              message: "Maximum length is 50 characters."
+            }
           })}
           placeholder="Your full name"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600 dark:focus:text-whiteFont rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
@@ -46,7 +46,7 @@ function Contact() {
         {/* Email */}
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-whiteFont-200"
         >
           Email
         </label>
@@ -55,11 +55,11 @@ function Contact() {
             required: "Email is required.",
             pattern: {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Simple email regex pattern
-              message: "Please enter a valid email address.",
-            },
+              message: "Please enter a valid email address."
+            }
           })}
           placeholder="Your email"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600  dark:focus:text-whiteFont rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
@@ -72,7 +72,7 @@ function Contact() {
         {/* Subject */}
         <label
           htmlFor="subject"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-whiteFont-200"
         >
           Subject
         </label>
@@ -82,11 +82,11 @@ function Contact() {
             minLength: { value: 3, message: "Minimum length is 3 characters." },
             maxLength: {
               value: 100,
-              message: "Maximum length is 100 characters.",
-            },
+              message: "Maximum length is 100 characters."
+            }
           })}
           placeholder="Subject"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600  dark:focus:text-whiteFont rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
@@ -99,7 +99,7 @@ function Contact() {
         {/* Body Text */}
         <label
           htmlFor="bodyText"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-whiteFont-200"
         >
           Description
         </label>
@@ -109,11 +109,11 @@ function Contact() {
             minLength: { value: 3, message: "Minimum length is 3 characters." },
             maxLength: {
               value: 1000,
-              message: "Maximum length is 2000 characters.",
-            },
+              message: "Maximum length is 2000 characters."
+            }
           })}
           placeholder="Description"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600 rounded-md focus:ring-blue-500 dark:focus:text-whiteFont focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
