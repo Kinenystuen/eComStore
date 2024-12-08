@@ -47,9 +47,9 @@ const DisplayProduct = () => {
   return (
     <div className="container pt-0 ">
       <Breadcrumb items={breadcrumbItems} />
-      <div className=" mx-auto max-w-3xl flex gap-4 mt-4">
+      <div className=" mx-auto max-w-3xl flex flex-col sm:flex-row gap-4 mt-4">
         <div
-          className="flex-1 relative cursor-pointer h-[60vh]"
+          className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh]"
           onClick={() => handleImageClick()}
         >
           <img
