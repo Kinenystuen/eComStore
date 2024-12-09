@@ -26,9 +26,11 @@ const CheckoutSuccessPage: React.FC = () => {
       <P className="text-gray-700 mb-8">Thank you for your purchase.</P>
 
       {/* Continue Shopping Button */}
-      <Link to="/">
-        <Button className="my-8 px-4">Continue Shopping</Button>
-      </Link>
+      <div>
+        <Link to="/">
+          <Button className="my-8 px-4 inline-block">Continue Shopping</Button>
+        </Link>
+      </div>
 
       {/* Order Summary */}
       <div className="bg-gray-100 dark:bg-customBgDark-600 p-4 rounded-lg shadow-md max-w-xl mx-auto">
