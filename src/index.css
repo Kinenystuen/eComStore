@@ -38,6 +38,17 @@
   --customGreenLight: #5c7457;
 }
 
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--font-color);
+  color: var(--font-color);
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 1000px var(--background-color, #98313100) inset;
+}
+
 html {
   font-size: 16px;
 }
