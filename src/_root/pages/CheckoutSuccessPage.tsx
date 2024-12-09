@@ -19,9 +19,10 @@ const CheckoutSuccessPage: React.FC = () => {
 
   return (
     <div className="container mx-auto text-center flex flex-col mt-16 gap-2">
-      <H1 className="text-3xl font-bold text-green-500 mb-6">
-        🎉 Checkout Successful!
+      <H1 className="m-auto text-3xl w-fit font-bold mb-6 motion-preset-confetti animate-confetti-loop">
+        Checkout Successful!
       </H1>
+
       <P className="text-gray-700 mb-8">Thank you for your purchase.</P>
 
       {/* Continue Shopping Button */}
