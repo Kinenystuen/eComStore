@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { cartReducer, CartState, initialState } from "./CartReducer";
 
 const CartContext = createContext<{
@@ -13,12 +13,15 @@ const CartContext = createContext<{
   incrementItem: (id: string) => void;
   decrementItem: (id: string) => void;
   clearCart: () => void;
+  setOrder: (items: CartState["items"]) => void;
+  order: CartState["items"];
 } | null>(null);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [order, setOrder] = useState<CartState["items"]>([]);
 
   // Add a new item to the cart
   const addItem = (item: {
@@ -58,7 +61,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         removeItem,
         incrementItem,
         decrementItem,
-        clearCart
+        clearCart,
+        order,
+        setOrder
       }}
     >
       {children}
