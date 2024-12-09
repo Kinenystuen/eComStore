@@ -33,7 +33,7 @@ function Contact() {
             }
           })}
           placeholder="Your full name"
-          className="w-full mt-1 p-2 border dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600 dark:focus:text-whiteFont rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600 dark:focus:text-whiteFont rounded-md dark:autofill:bg-customBgDark-500 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
@@ -59,7 +59,7 @@ function Contact() {
             }
           })}
           placeholder="Your email"
-          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600  dark:focus:text-whiteFont rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600  dark:focus:text-whiteFont rounded-md dark:autofill:bg-customBgDark-500 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
@@ -86,7 +86,7 @@ function Contact() {
             }
           })}
           placeholder="Subject"
-          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600  dark:focus:text-whiteFont rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600 dark:focus:bg-customBgDark-500  dark:focus:text-whiteFont dark:autofill:bg-customBgDark-500 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
@@ -113,7 +113,7 @@ function Contact() {
             }
           })}
           placeholder="Description"
-          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600 rounded-md focus:ring-blue-500 dark:focus:text-whiteFont focus:border-blue-500 shadow-sm"
+          className="w-full mt-1 p-2 border  dark:bg-customBgDark-500 border-gray-300 dark:border-customBgDark-600 dark:text-whiteFont-600  rounded-md focus:ring-blue-500 dark:focus:text-whiteFont dark:focus:bg-customBgDark-500 focus:border-blue-500 shadow-sm"
         />
         <ErrorMessage
           errors={errors}
