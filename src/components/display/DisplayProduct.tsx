@@ -10,6 +10,7 @@ import CalcDiscount from "../shared/ui/CalcDiscount";
 import { Product } from "../../library/types";
 import H2 from "../shared/Typography/H2";
 import P from "../shared/Typography/P";
+import { apiKey } from "../../library/constants";
 
 /* Breadcrumb items */
 const breadcrumbItems = [{ label: "Home", href: "/" }];
@@ -21,7 +22,7 @@ const DisplayProduct = () => {
     data: product,
     isLoading,
     isError
-  } = useApi<Product>(`https://v2.api.noroff.dev/online-shop/${id}`);
+  } = useApi<Product>(`${apiKey}/online-shop/${id}`);
 
   if (isLoading) {
     return <Loader />;

@@ -5,10 +5,11 @@ import SearchBar from "../../components/SearchBar";
 import DisplayData from "../../components/display/DisplayData";
 import H1 from "../../components/shared/Typography/H1";
 import Loader from "../../components/shared/ui/Loader";
+import { apiKey } from "../../library/constants";
 
 const Home = () => {
   const { data, isLoading, isError } = useApi<Product[]>(
-    "https://v2.api.noroff.dev/online-shop"
+    `${apiKey}/online-shop`
   );
   const totalItems = data?.length || 0;
   const [searchQuery, setSearchQuery] = useState<string>("");
