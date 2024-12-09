@@ -67,8 +67,15 @@ export default {
         lg: "1024px",
         xl: "1280px",
         "2xl": "1536px"
+      },
+      animation: {
+        "confetti-loop": "confetti 1s infinite"
       }
     }
   },
-  plugins: [require("tailwindcss"), require("autoprefixer")]
+  plugins: [
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("tailwindcss-motion")
+  ]
 };
