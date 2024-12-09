@@ -4,6 +4,8 @@ import Button from "./shared/Button";
 import H1 from "./shared/Typography/H1";
 import H2 from "./shared/Typography/H2";
 import P from "./shared/Typography/P";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CartPageDisplay = () => {
   const { state, incrementItem, decrementItem, removeItem, clearCart } =
@@ -21,9 +23,9 @@ const CartPageDisplay = () => {
         <div className="flex flex-col gap-2">
           <P>Your cart is empty.</P>
           <Link to="/" className="">
-            <button className="px-4 py-2 button rounded bg-blue-500 text-white hover:bg-blue-600 dark:bg-blueGreen dark:hover:bg-blueGreen-400">
+            <Button className="px-4 py-2 button rounded bg-blue-500 text-white hover:bg-blue-600 dark:bg-blueGreen dark:hover:bg-blueGreen-400">
               Go Shopping
-            </button>
+            </Button>
           </Link>
         </div>
       ) : (
@@ -59,20 +61,26 @@ const CartPageDisplay = () => {
                   <Button
                     onClick={() => decrementItem(item.id)}
                     className="px-3 py-1 rounded"
+                    ariaLabel="Remove one Product(s)"
+                    title="Remove one Product(s)"
                   >
                     -
                   </Button>
                   <Button
                     onClick={() => incrementItem(item.id)}
                     className="px-3 py-1 rounded"
+                    ariaLabel="Add one Product(s)"
+                    title="Add one Product(s)"
                   >
                     +
                   </Button>
                   <Button
                     onClick={() => removeItem(item.id)}
-                    className="px-3 py-1 bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600  text-white rounded"
+                    className="px-3 py-2 bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 text-white rounded flex items-center justify-center"
+                    ariaLabel="Remove Product(s)"
+                    title="Remove Product(s)"
                   >
-                    Remove
+                    <FontAwesomeIcon icon={faTrash} />
                   </Button>
                 </div>
               </div>
@@ -81,12 +89,19 @@ const CartPageDisplay = () => {
           <P className="dark:text-whiteFont-300 font-bold text-lg mt-6">
             Total: ${totalPrice.toFixed(2)}
           </P>
-          <Button
-            onClick={clearCart}
-            className="mt-6 bg-blue-500 dark:bg-blue-900 text-white px-4 py-2 rounded"
-          >
-            Clear Cart
-          </Button>
+          <div className="flex justify-center mt-6 gap-6">
+            <Button
+              onClick={clearCart}
+              className=" text-white px-4 py-2 rounded"
+            >
+              Clear Cart
+            </Button>
+            <Link to="/checkout-success">
+              <Button className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-4 py-2 rounded">
+                Checkout
+              </Button>
+            </Link>
+          </div>
         </>
       )}
     </div>

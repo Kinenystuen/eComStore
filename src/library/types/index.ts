@@ -8,8 +8,7 @@ export type H1Props = {
 
 /* Button props */
 export type ButtonProps = {
-  ButtonType?: "primary" | "secondary";
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
   title?: string;
@@ -52,6 +51,13 @@ export interface Product {
   tags: string[];
   description: string;
   rating: number;
+  reviews?: Review[];
+}
+interface Review {
+  id: string;
+  username: string;
+  rating: number;
+  description: string;
 }
 
 export interface LoaderProps {

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AddToCartButton from "../AddToCartButton";
 import { Product } from "../../library/types";
 import P from "../shared/Typography/P";
+import CalcDiscount from "../shared/ui/CalcDiscount";
 
 interface DisplayDataProps {
   data: Product[];
@@ -65,11 +66,20 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
 
               {/* Prices */}
               <div className="mt-4 flex flex-wrap items-baseline gap-2">
-                {product.discountedPrice < product.price && (
-                  <span className="text-lg font-bold text-green-500 break-words">
-                    ${product.discountedPrice.toFixed(2)}
-                  </span>
-                )}
+                <div className="flex flex-col gap-2">
+                  {product.discountedPrice < product.price && (
+                    <span className="text-lg font-bold text-green-500 break-words">
+                      ${product.discountedPrice.toFixed(2)}
+                    </span>
+                  )}
+                  {product.discountedPrice < product.price && (
+                    <CalcDiscount
+                      price={product.price}
+                      discountedPrice={product.discountedPrice}
+                      className="text-gray-900 dark:text-whiteFont-600 text-sm"
+                    />
+                  )}
+                </div>
                 <span
                   className={`text-lg font-bold ${
                     product.discountedPrice < product.price
