@@ -52,9 +52,9 @@ const DisplayProduct = () => {
 
         <div className="flex-1">
           <H1 className="text-2xl font-bold my-4">{product.title}</H1>
-          <p className="text-gray-700 dark:text-whiteFont-500 ">
+          <P className="text-gray-700 dark:text-whiteFont-500 ">
             {product.description}
-          </p>
+          </P>
           <div className="m-2">
             <div className="flex gap-2">
               {product.discountedPrice < product.price && (
@@ -76,7 +76,7 @@ const DisplayProduct = () => {
               {product.discountedPrice >= product.price ? (
                 <span>${product.price}</span>
               ) : (
-                <div>Original Price: ${product.price}</div>
+                <span>Original Price: ${product.price}</span>
               )}
             </P>
           </div>
