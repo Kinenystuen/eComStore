@@ -62,4 +62,5 @@ interface Review {
 
 export interface LoaderProps {
   theme?: "light" | "dark";
+  className?: string;
 }
