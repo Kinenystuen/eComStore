@@ -54,7 +54,7 @@ function Contact() {
           {...register("email", {
             required: "Email is required.",
             pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Simple email regex pattern
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: "Please enter a valid email address."
             }
           })}
