@@ -5,6 +5,8 @@ import { useState } from "react";
 import LoaderSmall from "../../components/shared/ui/LoaderSmall";
 import H2 from "../../components/shared/Typography/H2";
 import P from "../../components/shared/Typography/P";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Contact() {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,23 +32,46 @@ function Contact() {
   };
 
   return (
-    <div className="container mx-auto p-8 max-w-lg bg-white dark:bg-customBgDark-600 rounded-lg shadow-lg my-5">
+    <div className="container mx-auto p-6 max-w-lg bg-white dark:bg-customBgDark-600 rounded-lg shadow-lg my-5">
       {isSubmitted ? (
-        <div className="text-center">
-          <H2 className="text-xl font-semibold">Form sent</H2>
-          <P className="mt-4 text-sm">Here is the data you submitted:</P>
-          <div className="mt-4">
-            <P>
-              <strong>Full Name:</strong> {formData?.fullname}
+        <div className="">
+          <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center content-center mx-auto">
+            <FontAwesomeIcon
+              icon={faCheck}
+              style={{
+                fontSize: "6rem"
+              }}
+              className="m-4 sm:text-sm md:text-lg lg:text-2xl text-green-500 dark:text-green-600"
+            />
+          </div>
+          <H2 className="text-center text-xl font-semibold">Message sent</H2>
+          <div className="m-2">
+            <P className="text-center text-sm">
+              Thank you for reaching out to us!
             </P>
-            <P>
-              <strong>Email:</strong> {formData?.email}
+            <P className="text-center text-sm">
+              We will get back to you as soon as possible.
             </P>
-            <P>
-              <strong>Subject:</strong> {formData?.subject}
+          </div>
+          <P className="mt-8 p-1 text-sm">Content sent:</P>
+          <div className="my-1 border-2 rounded-md dark:border-BtnColor-600 p-2">
+            <div className="flex justify-between border-b-2 dark:border-BtnColor-600">
+              <P className="text-md flex flex-col justify-between gap-1 m-1">
+                <small className="dark:text-customBgDark-200">Name:</small>
+                {formData?.fullname}
+              </P>
+              <P className="text-md flex flex-col items-end justify-between gap-1 m-1">
+                <small className="dark:text-customBgDark-200">E-mail:</small>
+                {formData?.email}
+              </P>
+            </div>
+            <P className="text-md flex flex-col justify-between gap-1 m-1">
+              <small className="dark:text-customBgDark-200">Subject:</small>
+              {formData?.subject}
             </P>
-            <P>
-              <strong>Description:</strong> {formData?.bodyText}
+            <P className="text-md flex flex-col justify-between gap-1 m-1">
+              <small className="dark:text-customBgDark-200">Description:</small>
+              {formData?.bodyText}
             </P>
           </div>
         </div>
