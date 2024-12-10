@@ -15,6 +15,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Autofill styles for light mode */
+  --autofill-bg-light: #f7f7f7;
+  --autofill-text-light: #1a1a1a;
 }
 
 .light {
@@ -25,6 +29,10 @@
   --font-color: #000;
   --customGreen: #8fa984;
   --customGreenLight: #8fa984;
+
+  /* Use light mode autofill colors */
+  --autofill-bg-color: var(--autofill-bg-light);
+  --autofill-text-color: var(--autofill-text-light);
 }
 
 .dark {
@@ -36,18 +44,24 @@
   --svg-fill-light: #0a0f1d;
   --customGreen: #4a5d46;
   --customGreenLight: #5c7457;
+
+  /* Use dark mode autofill colors */
+  --autofill-bg-color: var(--background-color);
+  --autofill-text-color: var(--font-color);
 }
 
-/* Change Autocomplete styles in Chrome*/
+/* Change Autocomplete styles in Chrome */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--font-color);
-  color: var(--font-color);
+  -webkit-text-fill-color: var(--autofill-text-color);
+  color: var(--autofill-text-color);
+  background-color: var(--autofill-bg-color);
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-box-shadow: 0 0 0px 1000px var(--background-color, #98313100) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--autofill-bg-color) inset;
 }
+
 
 html {
   font-size: 16px;
