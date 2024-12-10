@@ -23,7 +23,6 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   const currentItem = state.items.find((item) => item.id === productId);
   const quantity = currentItem ? currentItem.quantity : 0;
 
-  // Add a new item to the cart
   const handleAddToCart = () => {
     addItem({ id: productId, title, price, image: image.url });
   };
@@ -41,10 +40,10 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   };
 
   return (
-    <div className={`flex gap-4 ${className}`}>
+    <div className={`flex gap-4 relative ${className}`}>
       {quantity === 0 ? (
         // Show "Add to Cart" button when quantity is 0
-        <Button onClick={handleAddToCart} className="px-4 py-2 ">
+        <Button onClick={handleAddToCart} className="px-4 py-2">
           Add to Cart
         </Button>
       ) : (
