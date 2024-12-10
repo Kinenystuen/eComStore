@@ -17,7 +17,7 @@ const CartPageDisplay = () => {
   );
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="container mx-auto mt-8  max-w-4xl">
       <H1 className="text-2xl font-bold mb-6">Your Cart</H1>
       {state.items.length === 0 ? (
         <div className="flex flex-col gap-2">
