@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useApi } from "../../hooks/UseApi";
 import Loader from "../shared/ui/Loader";
 import AddToCartButton from "../AddToCartButton";
@@ -11,6 +11,8 @@ import { Product } from "../../library/types";
 import H2 from "../shared/Typography/H2";
 import P from "../shared/Typography/P";
 import { apiKey } from "../../library/constants";
+import ErrorMessage from "../shared/ui/ErrorMessage";
+import Button from "../shared/Button";
 
 /* Breadcrumb items */
 const breadcrumbItems = [{ label: "Home", href: "/" }];
@@ -21,14 +23,31 @@ const DisplayProduct = () => {
   const {
     data: product,
     isLoading,
-    isError
+    isError,
+    errorMessage
   } = useApi<Product>(`${apiKey}/online-shop/${id}`);
 
   if (isLoading) {
     return <Loader />;
   }
-  if (isError) return <div>Error loading product details.</div>;
-  if (!product) return <div>No product details available.</div>;
+  if (isError) {
+    return (
+      <ErrorMessage message="Product not found">
+        <P>{errorMessage}</P>
+        <Link to="/">
+          <Button className="my-8 px-4 inline-block">Continue Shopping</Button>
+        </Link>
+      </ErrorMessage>
+    );
+  }
+  if (!product)
+    return (
+      <ErrorMessage message="Product not found">
+        <Link to="/">
+          <Button className="my-8 px-4 inline-block">Continue Shopping</Button>
+        </Link>
+      </ErrorMessage>
+    );
 
   /* Handle image click */
   const handleImageClick = () => {
