@@ -13,6 +13,7 @@ export type ButtonProps = {
   className?: string;
   title?: string;
   ariaLabel?: string;
+  buttonType?: "button" | "green" | "reset";
 };
 
 export type INavLink = {

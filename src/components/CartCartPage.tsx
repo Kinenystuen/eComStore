@@ -97,7 +97,7 @@ const CartPageDisplay = () => {
               Clear Cart
             </Button>
             <Link to="/checkout-success">
-              <Button className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-4 py-2 rounded">
+              <Button buttonType="green" className=" px-4 py-2 rounded">
                 Checkout
               </Button>
             </Link>
