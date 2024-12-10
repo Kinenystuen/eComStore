@@ -18,7 +18,7 @@ const CheckoutSuccessPage: React.FC = () => {
   }, [state.items, setOrder, clearCart]);
 
   return (
-    <div className="container mx-auto text-center flex flex-col mt-16 gap-2">
+    <div className="container mx-auto text-center flex flex-col items-center justify-center mt-16 gap-2">
       <H1 className="m-auto text-3xl w-fit font-bold mb-6 motion-preset-confetti animate-confetti-loop">
         Checkout Successful!
       </H1>
@@ -26,12 +26,14 @@ const CheckoutSuccessPage: React.FC = () => {
       <P className="text-gray-700 mb-8">Thank you for your purchase.</P>
 
       {/* Continue Shopping Button */}
-      <Link to="/">
-        <Button className="my-8 px-4">Continue Shopping</Button>
-      </Link>
+      <div>
+        <Link to="/">
+          <Button className="my-8 px-4 inline-block">Continue Shopping</Button>
+        </Link>
+      </div>
 
       {/* Order Summary */}
-      <div className="bg-gray-100 dark:bg-customBgDark-600 p-4 rounded-lg shadow-md max-w-xl mx-auto">
+      <div className="bg-gray-100 dark:bg-customBgDark-600 p-4 rounded-lg shadow-md max-w-lg w-full flex flex-col justify-center">
         <H2 className="text-xl font-bold mb-4">Your Order</H2>
         <ul className="space-y-4">
           {order.map((item) => (
