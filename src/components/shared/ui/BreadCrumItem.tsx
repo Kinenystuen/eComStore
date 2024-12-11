@@ -55,7 +55,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 ) : item.href && !item.current ? (
                   <Button
                     onClick={() => handleNavigate(item.href!)}
-                    className="inline-flex items-center text-sm font-medium p-[0.3rem] bg-transparent dark:bg-transparent text-BtnColor-700 hover:text-BtnColor-800 hover:bg-gray-200 border-none hover:border-none dark:text-gray-400 dark:hover:text-white"
+                    className="inline-flex items-center text-sm p-[0.3rem] bg-customBg dark:bg-transparent text-BtnColor-700 hover:text-BtnColor-800 hover:bg-gray-500 dark:text-gray-400 dark:hover:text-white"
                   >
                     {index === 0 && (
                       <FontAwesomeIcon
