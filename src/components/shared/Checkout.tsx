@@ -29,9 +29,9 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className="bg-gray-300 dark:bg-customBgDark-400 py-6 mt-12">
+    <div className="bg-gray-300 dark:bg-customBgDark-400 py-6 my-12">
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl rounded-lg my-2">
-        <P className="text-sm">Checkout</P>
+        <P className="text-sm dark:text-BtnColor-100">Checkout</P>
         <H2 className="text-xl font-semibold ps-0 mb-6">Shipping Details</H2>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -49,6 +49,7 @@ const CheckoutForm = () => {
                   Full Name
                 </label>
                 <input
+                  id="fullname"
                   {...register("fullname", {
                     required: "Full name is required.",
                     minLength: {
@@ -81,6 +82,7 @@ const CheckoutForm = () => {
                   Email
                 </label>
                 <input
+                  id="email"
                   {...register("email", {
                     required: "Email is required.",
                     pattern: {
@@ -108,6 +110,7 @@ const CheckoutForm = () => {
                   Street
                 </label>
                 <input
+                  id="street"
                   {...register("street", {
                     minLength: {
                       value: 3,
@@ -138,6 +141,7 @@ const CheckoutForm = () => {
                   City
                 </label>
                 <input
+                  id="city"
                   {...register("city", {
                     minLength: {
                       value: 3,
@@ -168,6 +172,7 @@ const CheckoutForm = () => {
                   Postal Code
                 </label>
                 <input
+                  id="postalCode"
                   {...register("postalCode", {
                     minLength: {
                       value: 3,
@@ -198,6 +203,7 @@ const CheckoutForm = () => {
                   Phone
                 </label>
                 <input
+                  id="phone"
                   {...register("phone", {
                     minLength: {
                       value: 3,
@@ -230,6 +236,7 @@ const CheckoutForm = () => {
                   Credit Card
                 </label>
                 <input
+                  id="creditCard"
                   {...register("creditCard", {
                     minLength: {
                       value: 3,
@@ -261,6 +268,7 @@ const CheckoutForm = () => {
                   Expiry Date
                 </label>
                 <input
+                  id="expiryDate"
                   {...register("expiryDate", {
                     minLength: {
                       value: 3,
@@ -292,6 +300,7 @@ const CheckoutForm = () => {
                   CVV
                 </label>
                 <input
+                  id="cvv"
                   {...register("cvv", {
                     minLength: {
                       value: 3,
