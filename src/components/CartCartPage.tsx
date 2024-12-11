@@ -17,7 +17,7 @@ const CartPageDisplay = () => {
   );
 
   return (
-    <div className="container mx-auto mt-8  max-w-4xl">
+    <div className="container mx-auto px-4 sm:px-6 mt-8 sm:my-20 max-w-4xl">
       <H1 className="text-2xl font-bold mb-6">Your Cart</H1>
       {state.items.length === 0 ? (
         <div className="flex flex-col gap-2">
@@ -89,18 +89,13 @@ const CartPageDisplay = () => {
           <P className="dark:text-whiteFont-300 font-bold text-lg mt-6">
             Total: ${totalPrice.toFixed(2)}
           </P>
-          <div className="flex justify-center mt-6 gap-6">
+          <div className="flex mt-6 gap-6">
             <Button
               onClick={clearCart}
               className=" text-white px-4 py-2 rounded"
             >
               Clear Cart
             </Button>
-            <Link to="/checkout-success">
-              <Button buttonType="green" className=" px-4 py-2 rounded">
-                Checkout
-              </Button>
-            </Link>
           </div>
         </>
       )}
