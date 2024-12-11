@@ -4,7 +4,7 @@ import Loader from "../shared/ui/Loader";
 import AddToCartButton from "../AddToCartButton";
 import H1 from "../shared/Typography/H1";
 import ModalImage from "../shared/ui/ModalImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Breadcrumb from "../shared/ui/BreadCrumItem";
 import CalcDiscount from "../shared/ui/CalcDiscount";
 import { Product } from "../../library/types";
@@ -16,7 +16,11 @@ import Button from "../shared/Button";
 import { useCartContext } from "../../context/CartContext";
 
 /* Breadcrumb items */
-const breadcrumbItems = [{ label: "Home", href: "/" }];
+let productName = "Product";
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: productName, current: true }
+];
 
 const DisplayProduct = () => {
   const { id } = useParams<{ id: string }>();
@@ -27,6 +31,13 @@ const DisplayProduct = () => {
     isError,
     errorMessage
   } = useApi<Product>(`${apiKey}/online-shop/${id}`);
+
+  useEffect(() => {
+    if (product) {
+      productName = product.title;
+      breadcrumbItems[1].label = product.title;
+    }
+  }, [product]);
 
   const { state } = useCartContext();
   const currentItem = state.items.find((item) => item.id === product?.id);
