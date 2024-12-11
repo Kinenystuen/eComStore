@@ -35,7 +35,7 @@ const CheckoutForm = () => {
         <H2 className="text-xl font-semibold ps-0 mb-6">Shipping Details</H2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          id="checkoutForm"
+          id="checkout"
           className="space-y-4"
         >
           <div className="sm:flex flex-wrap gap-4">

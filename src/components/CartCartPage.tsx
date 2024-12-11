@@ -7,7 +7,11 @@ import P from "./shared/Typography/P";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CartPageDisplay = () => {
+const CartPageDisplay = ({
+  onProceedToCheckout
+}: {
+  onProceedToCheckout: () => void;
+}) => {
   const { state, incrementItem, decrementItem, removeItem, clearCart } =
     useCartContext();
 
@@ -17,20 +21,31 @@ const CartPageDisplay = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 mt-8 sm:my-20 max-w-4xl">
-      <H1 className="text-2xl font-bold mb-6">Your Cart</H1>
+    <div className="container flex flex-col min-h-[50vh] mx-auto px-4 sm:px-6 mt-8 sm:my-20 sm:mt-10 max-w-4xl">
+      <div className="flex justify-between items-center mb-6">
+        <H1 className="text-2xl font-bold">Your cart</H1>
+        {/* Clear cart button */}
+        {state.items.length > 0 && (
+          <Button
+            onClick={clearCart}
+            className="text-white text-sm px-4 rounded"
+          >
+            Clear cart
+          </Button>
+        )}
+      </div>
       {state.items.length === 0 ? (
         <div className="flex flex-col gap-2">
           <P>Your cart is empty.</P>
           <Link to="/" className="">
-            <Button className="px-4 py-2 button rounded bg-blue-500 text-white hover:bg-blue-600 dark:bg-blueGreen dark:hover:bg-blueGreen-400">
+            <Button buttonType="blue" className="px-4 py-2 button rounded">
               Go Shopping
             </Button>
           </Link>
         </div>
       ) : (
         <>
-          <div className="space-y-4 ">
+          <div className="flex-grow  space-y-4 ">
             {state.items.map((item) => (
               <div
                 key={item.id}
@@ -44,7 +59,7 @@ const CartPageDisplay = () => {
                 />
 
                 {/* Details */}
-                <div className="flex-grow flex-col flex-wrap ml-4">
+                <div className="flex-grow flex-col flex flex-wrap ml-4">
                   <Link
                     to={`/product/${item.id}`}
                     key={item.id}
@@ -63,7 +78,8 @@ const CartPageDisplay = () => {
                   <div className="flex justify-center m-2">
                     <Button
                       onClick={() => removeItem(item.id)}
-                      className="px-[0.6rem] py-2 bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 text-white rounded flex items-center justify-center"
+                      className="px-[0.6rem] py-2 rounded flex items-center justify-center"
+                      buttonType="red"
                       ariaLabel="Remove Product(s)"
                       title="Remove Product(s)"
                     >
@@ -92,16 +108,22 @@ const CartPageDisplay = () => {
               </div>
             ))}
           </div>
-          <P className="dark:text-whiteFont-300 font-bold text-lg mt-6">
-            Total: ${totalPrice.toFixed(2)}
-          </P>
-          <div className="flex mt-6 gap-6">
-            <Button
-              onClick={clearCart}
-              className=" text-white px-4 py-2 rounded"
-            >
-              Clear Cart
-            </Button>
+          <div className="justify-end content-end items-end mt-20">
+            <P className="dark:text-whiteFont-300 font-bold text-lg mt-6">
+              Total: ${totalPrice.toFixed(2)}
+            </P>
+            <div className="flex justify-between gap-2 my-4  text-sm sm:text-md">
+              <Button buttonType="blue" ariaLabel="continue shopping">
+                <Link to="/">Continue shopping</Link>
+              </Button>
+              <Button
+                buttonType="green"
+                ariaLabel="Proceed to checkout"
+                onClick={onProceedToCheckout}
+              >
+                Proceed to checkout
+              </Button>
+            </div>
           </div>
         </>
       )}
