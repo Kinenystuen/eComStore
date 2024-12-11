@@ -60,7 +60,7 @@ const DisplayProduct = () => {
   };
 
   return (
-    <div className="container pt-0">
+    <div className="container mx-auto px-4">
       <Breadcrumb items={breadcrumbItems} />
       <div className="mx-auto max-w-3xl flex flex-col sm:flex-row gap-4 mt-4">
         <div
