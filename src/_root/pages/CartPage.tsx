@@ -7,7 +7,7 @@ const CartPage = () => {
   const cartQuantity = useCartContext();
   const breadcrumbItems = [
     { label: "Home", href: "/" },
-    { label: "Cart", href: "/cart", current: true }
+    { label: "Cart", current: true }
   ];
   return (
     <>
