@@ -4,7 +4,7 @@ import Loader from "../shared/ui/Loader";
 import AddToCartButton from "../AddToCartButton";
 import H1 from "../shared/Typography/H1";
 import ModalImage from "../shared/ui/ModalImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Breadcrumb from "../shared/ui/BreadCrumItem";
 import CalcDiscount from "../shared/ui/CalcDiscount";
 import { Product } from "../../library/types";
@@ -13,9 +13,14 @@ import P from "../shared/Typography/P";
 import { apiKey } from "../../library/constants";
 import ErrorMessage from "../shared/ui/ErrorMessage";
 import Button from "../shared/Button";
+import { useCartContext } from "../../context/CartContext";
 
 /* Breadcrumb items */
-const breadcrumbItems = [{ label: "Home", href: "/" }];
+let productName = "Product";
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: productName, current: true }
+];
 
 const DisplayProduct = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,6 +31,17 @@ const DisplayProduct = () => {
     isError,
     errorMessage
   } = useApi<Product>(`${apiKey}/online-shop/${id}`);
+
+  useEffect(() => {
+    if (product) {
+      productName = product.title;
+      breadcrumbItems[1].label = product.title;
+    }
+  }, [product]);
+
+  const { state } = useCartContext();
+  const currentItem = state.items.find((item) => item.id === product?.id);
+  const quantity = currentItem ? currentItem.quantity : 0;
 
   if (isLoading) {
     return <Loader />;
@@ -55,11 +71,11 @@ const DisplayProduct = () => {
   };
 
   return (
-    <div className="container pt-0 ">
+    <div className="container mx-auto px-4">
       <Breadcrumb items={breadcrumbItems} />
-      <div className=" mx-auto max-w-3xl flex flex-col sm:flex-row gap-4 mt-4">
+      <div className="mx-auto max-w-3xl flex flex-col sm:flex-row gap-4 mt-4">
         <div
-          className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh]"
+          className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh] max-h-[30rem]"
           onClick={() => handleImageClick()}
         >
           <img
@@ -105,8 +121,17 @@ const DisplayProduct = () => {
             title={product.title}
             price={product.discountedPrice}
             image={product.image}
-            className="m-2"
+            className="my-2"
           />
+
+          {/* Show Go to Cart Button if quantity is 1 or more */}
+          {quantity > 0 && (
+            <Link className="my-2" to="/cart">
+              <Button buttonType="green" className="my-4 px-4 inline-block">
+                Go to Cart
+              </Button>
+            </Link>
+          )}
 
           <ModalImage
             isOpen={isModalOpen}

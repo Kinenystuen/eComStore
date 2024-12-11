@@ -4,6 +4,7 @@ import { faHome, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import Button from "../Button";
+import GoBackBtn from "./GoBackBtn";
 
 interface BreadcrumbItem {
   label: string;
@@ -15,9 +16,15 @@ interface BreadcrumbItem {
 
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
+  goBack?: boolean;
+  className?: string;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  items,
+  goBack,
+  className
+}) => {
   const navigate = useNavigate();
 
   const handleNavigate = (path: string) => {
@@ -25,8 +32,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   };
 
   return (
-    <div className="my-2">
-      <nav className="flex px-1 py-1 text-gray-700" aria-label="Breadcrumb">
+    <div className={`my-2 flex px-1 py-1 gap-4 ${className}`}>
+      {goBack && (
+        <div>
+          <GoBackBtn />
+          <span className="sr-only">Go back</span>
+        </div>
+      )}
+      <nav className="flex  text-gray-700" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-1 rtl:space-x-reverse">
           {items.map((item, index) => (
             <React.Fragment key={index}>
@@ -42,7 +55,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                 ) : item.href && !item.current ? (
                   <Button
                     onClick={() => handleNavigate(item.href!)}
-                    className="inline-flex items-center text-sm font-medium p-[0.3rem] text-gray-700 hover:text-customGreen-600 border-none hover:border-none dark:text-gray-400 dark:hover:text-white"
+                    className="inline-flex items-center text-sm p-[0.3rem] bg-customBg dark:bg-transparent text-BtnColor-700 hover:text-BtnColor-800 hover:bg-gray-500 dark:text-gray-400 dark:hover:text-white"
                   >
                     {index === 0 && (
                       <FontAwesomeIcon

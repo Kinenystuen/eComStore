@@ -13,6 +13,8 @@ export type ButtonProps = {
   className?: string;
   title?: string;
   ariaLabel?: string;
+  type?: "submit" | "reset" | "button";
+  buttonType?: "green" | "blue" | "red";
 };
 
 export type INavLink = {
@@ -27,6 +29,17 @@ export interface FormData {
   email: string;
   subject: string;
   bodyText: string;
+}
+export interface FormShippingData {
+  fullname: string;
+  email: string;
+  street: string;
+  city: string;
+  postalCode: string;
+  phone: string;
+  creditCard: string;
+  expiryDate: string;
+  cvv: string;
 }
 
 // Element types

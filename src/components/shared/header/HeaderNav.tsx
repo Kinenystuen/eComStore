@@ -35,10 +35,10 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
               <NavLink
                 key={link.label}
                 to={link.route}
-                className={`py-2 px-3 text-sm font-semibold ${
+                className={`transform duration-300 rounded-md py-2 px-3 text-sm font-semibold ${
                   isActive
-                    ? "bg-blue-500 text-white hover:text-gray-800 dark:bg-customBgDark-400 dark:text-gray-100 dark:hover:text-white rounded-lg"
-                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-customBgDark-400 hover:rounded-lg"
+                    ? "bg-blue-500 text-white hover:text-gray-800 dark:bg-customBgDark-400 dark:text-gray-100 dark:hover:text-white"
+                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-customBgDark-400 hover:rounded-md"
                 }`}
               >
                 <span className="sr-only">{link.title}</span>
@@ -94,7 +94,7 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
                 key={link.label}
                 to={link.route}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block py-2 px-3 rounded-lg text-base font-semibold ${
+                className={`button block py-2 px-3 rounded-lg text-base font-semibold ${
                   isActive
                     ? "bg-blue-500 text-white hover:text-gray-800 dark:text-whiteFont-500 dark:hover:text-whiteFont-100"
                     : "text-gray-700 hover:bg-gray-100 dark:text-whiteFont-600 dark:hover:text-white dark:hover:bg-customBgDark-400"
