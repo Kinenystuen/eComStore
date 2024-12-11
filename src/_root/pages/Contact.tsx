@@ -7,6 +7,7 @@ import H2 from "../../components/shared/Typography/H2";
 import P from "../../components/shared/Typography/P";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import Button from "../../components/shared/Button";
 
 function Contact() {
   const [isLoading, setIsLoading] = useState(false);
@@ -200,12 +201,13 @@ function Contact() {
             />
 
             {/* Submit */}
-            <button
+            <Button
               type="submit"
-              className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
+              className="w-full font-bold rounded-md"
+              buttonType="blue"
             >
               {isLoading ? <LoaderSmall className="mx-auto" /> : "Submit"}
-            </button>
+            </Button>
           </form>
         </div>
       )}
