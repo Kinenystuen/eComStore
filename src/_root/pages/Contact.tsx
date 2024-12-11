@@ -87,6 +87,7 @@ function Contact() {
               Full Name
             </label>
             <input
+              id="fullname"
               {...register("fullname", {
                 required: "Full name is required.",
                 minLength: {
@@ -117,6 +118,7 @@ function Contact() {
               Email
             </label>
             <input
+              id="email"
               {...register("email", {
                 required: "Email is required.",
                 pattern: {
@@ -143,6 +145,7 @@ function Contact() {
               Subject
             </label>
             <input
+              id="subject"
               {...register("subject", {
                 required: "Subject is required.",
                 minLength: {
@@ -173,6 +176,7 @@ function Contact() {
               Description
             </label>
             <textarea
+              id="bodyText"
               {...register("bodyText", {
                 required: "Description is required.",
                 minLength: {
