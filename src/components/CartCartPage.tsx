@@ -30,58 +30,64 @@ const CartPageDisplay = () => {
         </div>
       ) : (
         <>
-          <div className="space-y-4">
+          <div className="space-y-4 ">
             {state.items.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between border dark:border-customBgDark-400 p-2 rounded-lg"
+                className="flex flex-wrap xs:flex-nowrap items-center justify-between border dark:border-customBgDark-400 p-2 rounded-lg"
               >
                 {/* Image */}
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-20 h-20 object-cover rounded-lg"
+                  className="w-20 h-fill object-cover rounded-lg"
                 />
 
                 {/* Details */}
-                <div className="flex-1 ml-4">
+                <div className="flex-grow flex-col flex-wrap ml-4">
                   <Link
                     to={`/product/${item.id}`}
                     key={item.id}
                     title={`Go to ${item.title}`}
                   >
-                    <H2 className="font-bold ps-0">{item.title}</H2>
+                    <H2 className="text-base sm:font-bold ps-0">
+                      {item.title}
+                    </H2>
                   </Link>
                   <P>Price: ${item.price}</P>
                   <P>Quantity: {item.quantity}</P>
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center justify-end gap-2 flex-wrap">
-                  <Button
-                    onClick={() => decrementItem(item.id)}
-                    className="px-3 py-1 rounded"
-                    ariaLabel="Remove one Product(s)"
-                    title="Remove one Product(s)"
-                  >
-                    -
-                  </Button>
-                  <Button
-                    onClick={() => incrementItem(item.id)}
-                    className="px-3 py-1 rounded"
-                    ariaLabel="Add one Product(s)"
-                    title="Add one Product(s)"
-                  >
-                    +
-                  </Button>
-                  <Button
-                    onClick={() => removeItem(item.id)}
-                    className="px-3 py-2 bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 text-white rounded flex items-center justify-center"
-                    ariaLabel="Remove Product(s)"
-                    title="Remove Product(s)"
-                  >
-                    <FontAwesomeIcon icon={faTrash} />
-                  </Button>
+                <div className="flex items-end justify-end ms-2 gap-4 flex-wrap flex-col">
+                  <div className="flex justify-center m-2">
+                    <Button
+                      onClick={() => removeItem(item.id)}
+                      className="px-[0.6rem] py-2 bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 text-white rounded flex items-center justify-center"
+                      ariaLabel="Remove Product(s)"
+                      title="Remove Product(s)"
+                    >
+                      <FontAwesomeIcon icon={faTrash} width={12} />
+                    </Button>
+                  </div>
+                  <div className="flex gap-2 m-2">
+                    <Button
+                      onClick={() => decrementItem(item.id)}
+                      className="px-3 py-1 rounded"
+                      ariaLabel="Remove one Product(s)"
+                      title="Remove one Product(s)"
+                    >
+                      -
+                    </Button>
+                    <Button
+                      onClick={() => incrementItem(item.id)}
+                      className="px-3 py-1 rounded"
+                      ariaLabel="Add one Product(s)"
+                      title="Add one Product(s)"
+                    >
+                      +
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
