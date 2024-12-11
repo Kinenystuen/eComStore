@@ -6,7 +6,7 @@ const GoBackBtn = () => {
   return (
     <Button
       onClick={() => window.history.back()}
-      className="inline-flex items-center text-sm font-medium p-[0.3rem] border-none hover:border-none bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent text-customBgDark-500 hover:text-customBgDark-900 dark:text-whiteFont-600 dark:hover:text-white"
+      className="inline-flex items-center text-sm font-medium p-[0.3rem] pe-3 border-none hover:border-none dark:text-gray-400 dark:hover:text-white"
     >
       <FontAwesomeIcon
         icon={faChevronLeft}
