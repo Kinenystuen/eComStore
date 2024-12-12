@@ -71,25 +71,19 @@ const DisplayProduct = () => {
   };
 
   return (
-    <div className="">
-      <MetaTags
-        title={`${product.title} - eComStore`}
-        keywords="eComStore, product, details, shop online"
-        description="Explore the details of our products. High-quality and great deals await you!"
-      />
-      <div className="container mx-auto px-4">
-        <Breadcrumb items={breadcrumbItems} />
-        <div className="mx-auto max-w-4xl lg:max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
-          <div
-            className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh] max-h-[30rem]"
-            onClick={() => handleImageClick()}
-          >
-            <img
-              src={product.image.url}
-              alt={product.image.alt || product.title}
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
-            />
-          </div>
+    <div className="container mx-auto px-4">
+      <Breadcrumb items={breadcrumbItems} />
+      <div className="mx-auto max-w-3xl flex flex-col sm:flex-row gap-4 mt-4">
+        <div
+          className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh] max-h-[30rem]"
+          onClick={() => handleImageClick()}
+        >
+          <img
+            src={product.image.url}
+            alt={product.image.alt || product.title}
+            className="absolute inset-0 w-full h-full object-cover rounded-lg"
+          />
+        </div>
 
         <div className="flex-1">
           <H1 className="text-2xl font-bold my-4">{product.title}</H1>

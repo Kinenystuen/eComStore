@@ -1,24 +1,6 @@
 import { Link } from "react-router-dom";
 import ErrorMessage from "../../components/shared/ui/ErrorMessage";
 
-
-import MetaTags from "../../components/shared/metaTags";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
-
-const img = (
-  <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center items-center mx-auto">
-    <FontAwesomeIcon
-      icon={faCircleExclamation}
-      style={{
-        fontSize: "6rem"
-      }}
-      className="m-4 sm:text-sm md:text-lg lg:text-2xl text-green-500 dark:text-green-600"
-    />
-  </div>
-);
-        
-
 const PageNotFound = () => {
   return (
     <div className="flex flex-col justify-center items-center">
