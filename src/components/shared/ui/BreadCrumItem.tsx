@@ -39,7 +39,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           <span className="sr-only">Go back</span>
         </div>
       )}
-      <nav className="flex  text-gray-700" aria-label="Breadcrumb">
+      <nav className="flex" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-1 rtl:space-x-reverse">
           {items.map((item, index) => (
             <React.Fragment key={index}>
@@ -55,7 +55,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 ) : item.href && !item.current ? (
                   <Button
                     onClick={() => handleNavigate(item.href!)}
-                    className="inline-flex items-center text-sm p-[0.3rem] bg-customBg dark:bg-transparent text-BtnColor-700 hover:text-BtnColor-800 hover:bg-gray-500 dark:text-gray-400 dark:hover:text-white"
+                    className="inline-flex items-center text-sm p-[0.25rem] bg-transparent text-BtnColor-600 dark:bg-transparent hover:text-white dark:text-BtnColor-200 dark:hover:text-white"
                   >
                     {index === 0 && (
                       <FontAwesomeIcon
