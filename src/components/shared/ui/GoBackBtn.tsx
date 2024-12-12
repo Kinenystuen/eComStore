@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../Button";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const GoBackBtn = () => {
+  const navigate = useNavigate();
   return (
     <Button
-      onClick={() => window.history.back()}
+      onClick={() => navigate(-1)}
       className="inline-flex items-center text-sm font-medium p-[0.3rem] pe-3 border-none hover:border-none dark:text-gray-400 dark:hover:text-white"
     >
       <FontAwesomeIcon
