@@ -49,7 +49,7 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
           })}
         </div>
 
-        {/* Mobilmeny-knapp og CartIcon */}
+        {/* Mobile menu-btn and CartIcon */}
         <div className="flex items-center gap-4 lg:flex lg:flex-1 lg:justify-end">
           {/* Theme Toggle */}
           <div>
