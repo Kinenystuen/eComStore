@@ -16,7 +16,13 @@ const CartPage = () => {
   // Roll down to checkout form
   const scrollToCheckout = () => {
     if (checkoutRef.current) {
-      checkoutRef.current.scrollIntoView({ behavior: "smooth" });
+      const offset = window.innerHeight * 0.1;
+      const elementTop =
+        checkoutRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementTop - offset,
+        behavior: "smooth"
+      });
     }
   };
 
