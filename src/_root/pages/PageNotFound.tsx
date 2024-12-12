@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import ErrorMessage from "../../components/shared/ui/ErrorMessage";
+
+
 import MetaTags from "../../components/shared/metaTags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
@@ -15,17 +17,12 @@ const img = (
     />
   </div>
 );
+        
 
 const PageNotFound = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <MetaTags
-        title={`Page not found - eComStore`}
-        keywords="eComStore, products, details, shop online, checkout"
-        description="eComStore 404 page! Page not found."
-      />
-
-      <ErrorMessage message="404 Page not found" icon={img}>
+      <ErrorMessage message="404 Page not found">
         <Link
           to="/"
           className=" m-1.5 p-2 px-4 transition duration-300 rounded-lg bg-blue-500 text-white hover:bg-blue-600 dark:bg-BtnColor dark:text-whiteFont-500 dark:hover:bg-BtnColor-400"
