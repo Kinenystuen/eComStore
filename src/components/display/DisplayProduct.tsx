@@ -85,12 +85,35 @@ const DisplayProduct = () => {
           />
         </div>
 
-        <div className="flex-1">
-          <H1 className="text-2xl font-bold my-4">{product.title}</H1>
-          <P className="text-gray-700 dark:text-whiteFont-500 ">
+        <div className="flex flex-col flex-1">
+          <div className="flex justify-between">
+            <div>
+              <H1 className="text-2xl font-bold my-2">{product.title}</H1>
+            </div>
+            {product.reviews && product.reviews.length > 0 && (
+              <div className="m-2 flex justify-center items-center">
+                <span className="text-yellow-400 text-lg">★</span>
+                <span className="ml-2 text-gray-700 dark:text-white font-medium">
+                  {product.rating}/5
+                </span>
+              </div>
+            )}
+          </div>
+          {/* Tags */}
+          <div className="mb-4 flex flex-wrap gap-2">
+            {product.tags.map((tag: string, index: number) => (
+              <span
+                key={index}
+                className="bg-gray-100 dark:bg-customBgDark-300 text-gray-700 dark:text-whiteFont-400 text-xs px-2 py-1 rounded"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <P className="flex-grow text-gray-700 dark:text-whiteFont-500 ">
             {product.description}
           </P>
-          <div className="m-2">
+          <div className="m-4">
             <div className="flex gap-2">
               {product.discountedPrice < product.price && (
                 <span className="text-lg font-bold text-green-500 break-words">
@@ -115,23 +138,25 @@ const DisplayProduct = () => {
               )}
             </P>
           </div>
-          {/* Add to Cart Button Component */}
-          <AddToCartButton
-            productId={product.id}
-            title={product.title}
-            price={product.discountedPrice}
-            image={product.image}
-            className="my-2"
-          />
+          <div className="flex justify-between mt-10">
+            {/* Add to Cart Button Component */}
+            <AddToCartButton
+              productId={product.id}
+              title={product.title}
+              price={product.discountedPrice}
+              image={product.image}
+              className="my-4"
+            />
 
-          {/* Show Go to Cart Button if quantity is 1 or more */}
-          {quantity > 0 && (
-            <Link className="my-2" to="/cart">
-              <Button buttonType="green" className="my-4 px-4 inline-block">
-                Go to Cart
-              </Button>
-            </Link>
-          )}
+            {/* Show Go to Cart Button if quantity is 1 or more */}
+            {quantity > 0 && (
+              <Link className="my-2" to="/cart">
+                <Button buttonType="green" className="my-1 px-4 inline-block">
+                  Go to Cart
+                </Button>
+              </Link>
+            )}
+          </div>
 
           <ModalImage
             isOpen={isModalOpen}
