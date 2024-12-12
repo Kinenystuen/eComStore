@@ -5,6 +5,9 @@ import { useCartContext } from "../../context/CartContext";
 import Button from "../../components/shared/Button";
 import H2 from "../../components/shared/Typography/H2";
 import P from "../../components/shared/Typography/P";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import MetaTags from "../../components/shared/metaTags";
 
 const CheckoutSuccessPage: React.FC = () => {
   const { state, clearCart, setOrder, order } = useCartContext();
@@ -18,12 +21,32 @@ const CheckoutSuccessPage: React.FC = () => {
   }, [state.items, setOrder, clearCart]);
 
   return (
-    <div className="container mx-auto text-center flex flex-col items-center justify-center mt-16 gap-2">
+    <div className="container mx-auto max-w-2xl text-center flex flex-col items-center justify-center my-16 gap-2">
+      <MetaTags
+        title={`CheckoutSuccess - eComStore`}
+        keywords="eComStore, products, details, shop online, checkout"
+        description="eComStore checkout success page!"
+      />
+      <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center content-center mx-auto">
+        <FontAwesomeIcon
+          icon={faCheck}
+          style={{
+            fontSize: "6rem"
+          }}
+          className="m-4 sm:text-sm md:text-lg lg:text-2xl text-green-500 dark:text-green-600"
+        />
+      </div>
       <H1 className="m-auto text-3xl w-fit font-bold mb-6 motion-preset-confetti animate-confetti-loop">
         Checkout Successful!
       </H1>
-
-      <P className="text-gray-700 mb-8">Thank you for your purchase.</P>
+      <P className="text-gray-700">Thank you for your purchase.</P>
+      <P className="text-gray-700 mt-4">
+        We appreciate your trust in us. A confirmation email has been sent to
+        your inbox with the details of your order.
+      </P>
+      <P className="text-gray-700">
+        If you have any questions, feel free to contact our support team.
+      </P>
 
       {/* Continue Shopping Button */}
       <div>

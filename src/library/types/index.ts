@@ -14,7 +14,7 @@ export type ButtonProps = {
   title?: string;
   ariaLabel?: string;
   type?: "submit" | "reset" | "button";
-  buttonType?: "green" | "blue" | "red";
+  buttonType?: "green" | "blue" | "red" | "transparent";
 };
 
 export type INavLink = {

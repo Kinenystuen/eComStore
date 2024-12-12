@@ -8,6 +8,7 @@ import P from "../../components/shared/Typography/P";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../components/shared/Button";
+import MetaTags from "../../components/shared/metaTags";
 
 function Contact() {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +35,11 @@ function Contact() {
 
   return (
     <div className="container mx-auto p-6 max-w-lg bg-white dark:bg-customBgDark-600 rounded-lg shadow-lg my-5">
+      <MetaTags
+        title={`Contact us - eComStore`}
+        keywords="eComStore, products, details, shop online, contact us"
+        description="eComStore contact us page! Reach out to us for any queries or feedback. We are here to help you!"
+      />
       {isSubmitted ? (
         <div className="">
           <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center content-center mx-auto">

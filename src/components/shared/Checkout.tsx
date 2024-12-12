@@ -29,7 +29,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className="bg-gray-300 dark:bg-customBgDark-400 py-6 my-12">
+    <div className="bg-gray-300 dark:bg-customBgDark-400 py-6 pb-12 mt-12">
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl rounded-lg my-2">
         <P className="text-sm dark:text-BtnColor-100">Checkout</P>
         <H2 className="text-xl font-semibold ps-0 mb-6">Shipping Details</H2>
