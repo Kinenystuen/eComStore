@@ -2,11 +2,7 @@ import { Link } from "react-router-dom";
 import ErrorMessage from "../../components/shared/ui/ErrorMessage";
 import MetaTags from "../../components/shared/metaTags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBug,
-  faCircleExclamation,
-  faE
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 const img = (
   <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center items-center mx-auto">
