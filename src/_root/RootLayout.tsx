@@ -15,7 +15,7 @@ const RootLayout = () => {
       <HeaderBar />
 
       {/* Main Section */}
-      <main className="w-full mb-8 flex-grow mt-14 lg:mt-20">
+      <main className="w-full flex-grow mt-14 lg:mt-20">
         <Outlet />
       </main>
 
