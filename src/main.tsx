@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext.tsx";
-import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter
@@ -12,11 +11,9 @@ createRoot(document.getElementById("root")!).render(
     future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
   >
     <StrictMode>
-      <HelmetProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </HelmetProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
     </StrictMode>
   </BrowserRouter>
 );
