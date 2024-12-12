@@ -20,8 +20,8 @@ const Home = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 mt-8">
-      <H1 className="text-2xl">Products</H1>
+    <div className="container max-w-8xl mx-auto px-4 mt-8">
+      <H1 className="text-2xl mx-4">Products</H1>
       <SearchBar onSearch={(query) => setSearchQuery(query)} />
       {/* Fetch and show data */}
       {isLoading && <Loader />}

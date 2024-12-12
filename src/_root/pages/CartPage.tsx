@@ -27,15 +27,19 @@ const CartPage = () => {
   };
 
   return (
-    <>
-      <Breadcrumb items={breadcrumbItems} className="ms-4" goBack={true} />
+    <div className="">
+      <Breadcrumb
+        items={breadcrumbItems}
+        className="container max-w-8xl mx-auto px-4"
+        goBack={true}
+      />
       <CartPageDisplay onProceedToCheckout={scrollToCheckout} />{" "}
       {state.items.length > 0 && (
         <div ref={checkoutRef}>
           <CheckoutForm />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -12,7 +12,7 @@ interface DisplayDataProps {
 const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
   return (
     <div>
-      <P className="flex justify-end">
+      <P className="flex justify-end mx-8">
         {data.length}/{totalItems} products
       </P>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 m-2 md:gap-3 md:p-6">

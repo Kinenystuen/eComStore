@@ -73,7 +73,7 @@ const DisplayProduct = () => {
   return (
     <div className="container mx-auto px-4">
       <Breadcrumb items={breadcrumbItems} />
-      <div className="mx-auto max-w-3xl flex flex-col sm:flex-row gap-4 mt-4">
+      <div className="mx-auto max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
         <div
           className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh] max-h-[30rem]"
           onClick={() => handleImageClick()}
@@ -113,7 +113,7 @@ const DisplayProduct = () => {
           <P className="flex-grow text-gray-700 dark:text-whiteFont-500 ">
             {product.description}
           </P>
-          <div className="m-4">
+          <div className="m-1">
             <div className="flex gap-2">
               {product.discountedPrice < product.price && (
                 <span className="text-lg font-bold text-green-500 break-words">
@@ -138,7 +138,7 @@ const DisplayProduct = () => {
               )}
             </P>
           </div>
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-between mt-2">
             {/* Add to Cart Button Component */}
             <AddToCartButton
               productId={product.id}
@@ -181,7 +181,7 @@ const DisplayProduct = () => {
       </div>
       {/* Reviews */}
       {product.reviews && product.reviews.length > 0 ? (
-        <div className="mx-auto max-w-3xl flex flex-col gap-4 mt-8">
+        <div className="mx-auto max-w-8xl flex flex-col gap-4 mt-8">
           <H2 className="text-xl font-semibold mb-4">Reviews</H2>
           <ul className="space-y-4">
             {product.reviews.map((review) => (
@@ -197,7 +197,7 @@ const DisplayProduct = () => {
           </ul>
         </div>
       ) : (
-        <div className="mx-auto max-w-3xl flex flex-col gap-4 mt-8">
+        <div className="mx-auto max-w-8xl flex flex-col gap-4 mt-8">
           <H2 className="text-xl font-semibold mb-4">Reviews</H2>
           <P className="text-gray-500">
             No reviews available for this product.
