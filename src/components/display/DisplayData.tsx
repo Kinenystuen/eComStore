@@ -47,17 +47,6 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
                   {product.title}
                 </h2>
               </Link>
-              {/* Tags */}
-              <div className="mt-2 flex flex-wrap gap-2">
-                {product.tags.map((tag: string, index: number) => (
-                  <span
-                    key={index}
-                    className="bg-gray-100 dark:bg-customBgDark-300 text-gray-700 dark:text-whiteFont-400 text-xs px-2 py-1 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
 
               {/* Description */}
               <p className="mt-2 text-gray-600 dark:text-whiteFont-600 flex-grow">
@@ -93,11 +82,20 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
 
               {/* Rating */}
               <div className="mt-4 flex items-center mb-2">
-                <span className="text-yellow-400 text-lg">★</span>
-                <span className="ml-2 text-gray-700 dark:text-whiteFont-600 font-medium">
-                  {product.rating}/5
-                </span>
+                {product.reviews && product.reviews.length > 0 ? (
+                  <>
+                    <span className="text-yellow-400 text-lg">★</span>
+                    <span className="ml-2 text-gray-700 dark:text-white font-medium">
+                      {product.rating}/5
+                    </span>
+                  </>
+                ) : (
+                  <small className="text-gray-700 dark:text-whiteFont-400">
+                    No reviews yet
+                  </small>
+                )}
               </div>
+
               <div className="flex justify-between gap-2">
                 <Link
                   to={`/product/${product.id}`}
