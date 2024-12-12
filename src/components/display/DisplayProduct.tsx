@@ -190,7 +190,7 @@ const DisplayProduct = () => {
               {product.reviews.map((review) => (
                 <li
                   key={review.id}
-                  className="border border-customBgDark-600 rounded-lg p-4 bg-gray-50 dark:bg-customBgDark-600"
+                  className="border border-customBgDark-700 rounded-lg p-4 bg-gray-50 dark:bg-customBgDark-500"
                 >
                   <P className="text-sm font-semibold">{review.username}</P>
                   <P className="text-yellow-500">{`★`.repeat(review.rating)}</P>
@@ -201,11 +201,13 @@ const DisplayProduct = () => {
           </div>
         </div>
       ) : (
-        <div className="mx-auto max-w-8xl flex flex-col gap-4 mt-8">
-          <H2 className="text-xl font-semibold mb-4">Reviews</H2>
-          <P className="text-gray-500">
-            No reviews available for this product.
-          </P>
+        <div className="bg-customBgDark-200 dark:bg-customBgDark-600 py-4 pb-20 mt-20">
+          <div className="container mx-auto max-w-4xl flex flex-col gap-4 mt-8">
+            <H2 className="text-xl font-semibold mb-4">Reviews</H2>
+            <P className="text-gray-500">
+              No reviews available for this product.
+            </P>
+          </div>
         </div>
       )}
     </div>
