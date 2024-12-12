@@ -87,7 +87,7 @@ const DisplayProduct = () => {
 
         <div className="flex flex-col flex-1">
           <div className="flex justify-between">
-            <div>
+            <div className="flex flex-wrap">
               <H1 className="text-2xl font-bold my-2">{product.title}</H1>
             </div>
             {product.reviews && product.reviews.length > 0 && (
