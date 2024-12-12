@@ -7,6 +7,7 @@ import H2 from "../../components/shared/Typography/H2";
 import P from "../../components/shared/Typography/P";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import MetaTags from "../../components/shared/metaTags";
 
 const CheckoutSuccessPage: React.FC = () => {
   const { state, clearCart, setOrder, order } = useCartContext();
@@ -21,6 +22,11 @@ const CheckoutSuccessPage: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-2xl text-center flex flex-col items-center justify-center my-16 gap-2">
+      <MetaTags
+        title={`CheckoutSuccess - eComStore`}
+        keywords="eComStore, products, details, shop online, checkout"
+        description="eComStore checkout success page!"
+      />
       <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center content-center mx-auto">
         <FontAwesomeIcon
           icon={faCheck}

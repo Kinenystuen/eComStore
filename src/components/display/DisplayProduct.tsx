@@ -14,6 +14,7 @@ import { apiKey } from "../../library/constants";
 import ErrorMessage from "../shared/ui/ErrorMessage";
 import Button from "../shared/Button";
 import { useCartContext } from "../../context/CartContext";
+import MetaTags from "../shared/metaTags";
 
 /* Breadcrumb items */
 let productName = "Product";
@@ -72,6 +73,11 @@ const DisplayProduct = () => {
 
   return (
     <div className="">
+      <MetaTags
+        title={`${product.title} - eComStore`}
+        keywords="eComStore, product, details, shop online"
+        description="Explore the details of our products. High-quality and great deals await you!"
+      />
       <div className="container mx-auto px-4">
         <Breadcrumb items={breadcrumbItems} />
         <div className="mx-auto max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
