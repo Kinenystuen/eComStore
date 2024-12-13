@@ -19,6 +19,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         type="text"
         placeholder="Search for products..."
         value={searchTerm}
+        aria-label="Search for products"
         onChange={handleInputChange}
         className="border border-gray-300 dark:bg-customBgDark-400 dark:border-customBgDark-800 dark:text-whiteFont-300 rounded px-4 py-2 w-full"
       />
