@@ -47,6 +47,10 @@ jobs:
       - name: Build project
         run: npm run build
 
+      # Copy index.html to 404.html
+      - name: Create 404.html for SPA fallback
+        run: cp dist/index.html dist/404.html
+
       # Upload the build output as an artifact for GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
