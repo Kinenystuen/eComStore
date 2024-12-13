@@ -52,7 +52,7 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
               </Link>
 
               {/* Content */}
-              <div className="p-4 flex flex-col flex-1">
+              <div className="p-2 flex flex-col flex-1">
                 {/* Title */}
                 <Link
                   to={`/product/${product.id}`}
@@ -74,7 +74,7 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
                 <div className="m-1">
                   <div className="flex gap-2">
                     {product.discountedPrice < product.price && (
-                      <span className="text-lg font-bold text-green-500 break-words">
+                      <span className="text-lg font-bold text-green-700 dark:text-green-500 break-words">
                         {product.discountedPrice.toFixed(2)} kr
                       </span>
                     )}
@@ -105,60 +105,64 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
                 </div>
 
                 {/* Rating */}
-                <div className="mt-4 flex items-center mb-2">
-                  {product.reviews && product.reviews.length > 0 ? (
-                    <>
-                      <span className="text-yellow-400 text-lg">★</span>
-                      <span className="ml-2 text-gray-700 dark:text-white font-medium">
-                        {product.rating}/5
-                      </span>
-                    </>
-                  ) : (
-                    <small className="text-gray-700 dark:text-whiteFont-400">
-                      No reviews yet
-                    </small>
-                  )}
+                <div className="flex justify-between">
+                  <div className="mt-4 flex items-center mb-2">
+                    {product.reviews && product.reviews.length > 0 ? (
+                      <>
+                        <span className="text-gray-700 dark:text-white text-lg">
+                          ★
+                        </span>
+                        <span className="ml-2 text-gray-700 dark:text-white font-medium">
+                          {product.rating}/5
+                        </span>
+                      </>
+                    ) : (
+                      <small className="text-gray-700 dark:text-whiteFont-400">
+                        No reviews yet
+                      </small>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-end">
+                    {isInCart && (
+                      <Link
+                        to="/cart"
+                        className="mx-1 flex items-center"
+                        aria-label="Go to cart"
+                        title="Go to cart"
+                      >
+                        <FontAwesomeIcon
+                          icon={faCartShopping}
+                          style={{
+                            fontSize: "1rem",
+                            padding: "0.5rem"
+                          }}
+                          className="text-center dark:text-whiteFont dark:hover:text-whiteFont-600 hover:color-BtnColor-100"
+                        />
+                      </Link>
+                    )}
+                  </div>
                 </div>
 
-                <div className="flex justify-between gap-2">
+                <div className="flex justify-between content-end items-end gap-2">
                   <Link
                     to={`/product/${product.id}`}
                     key={product.id}
                     title={`Go to ${product.title}`}
-                    className="flex p-2 px-3 button text-center justify-center rounded bg-blue-500 text-white hover:bg-blue-600 dark:bg-BtnColor dark:hover:bg-BtnColor-400"
+                    className="flex p-2 px-3 h-fit button text-center justify-center rounded bg-blue-600 hover:bg-blue-700 dark:bg-blue-800 dark:hover:bg-blue-600 text-white hover:text-white"
                   >
-                    <P className="text-white">View</P>
+                    View
                   </Link>
 
-                  <div className="flex">
+                  <div className="flex justify-end flex-wrap">
                     {/* Cart Icon | only show if in cart */}
-                    <div className="flex items-center justify-end">
-                      {isInCart && (
-                        <Link
-                          to="/cart"
-                          className="mx-1 flex items-center"
-                          aria-label="Go to cart"
-                          title="Go to cart"
-                        >
-                          <FontAwesomeIcon
-                            icon={faCartShopping}
-                            style={{
-                              fontSize: "1rem",
-                              color: "black",
-                              padding: "0.7rem"
-                            }}
-                            className="text-center hover:color-BtnColor-100"
-                          />
-                        </Link>
-                      )}
-                    </div>
+
                     {/* Add to Cart Button Component */}
                     <AddToCartButton
                       productId={product.id}
                       title={product.title}
                       price={product.discountedPrice}
                       image={product.image}
-                      className="content-end justify-center items-center "
+                      className="content-end justify-center items-center h-fit"
                     />
                   </div>
                 </div>
