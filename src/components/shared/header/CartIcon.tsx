@@ -5,12 +5,18 @@ import { Link } from "react-router-dom";
 
 interface CartIconProps {
   itemCount: number;
+  link: string;
 }
 
-const CartIcon: React.FC<CartIconProps> = ({ itemCount }) => {
+const CartIcon: React.FC<CartIconProps> = ({ itemCount, link }) => {
   return (
     <div className="relative mx-3">
-      <Link to="/cart" className="text-gray-700 hover:text-gray-900">
+      <Link
+        to={link}
+        aria-label="Cart icon"
+        title="Go to cart"
+        className="text-gray-700 hover:text-gray-900"
+      >
         <FontAwesomeIcon
           icon={faCartShopping}
           style={{

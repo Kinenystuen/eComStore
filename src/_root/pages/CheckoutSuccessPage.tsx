@@ -27,26 +27,28 @@ const CheckoutSuccessPage: React.FC = () => {
         keywords="eComStore, products, details, shop online, checkout"
         description="eComStore checkout success page!"
       />
-      <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center content-center mx-auto">
-        <FontAwesomeIcon
-          icon={faCheck}
-          style={{
-            fontSize: "6rem"
-          }}
-          className="m-4 sm:text-sm md:text-lg lg:text-2xl text-green-500 dark:text-green-600"
-        />
+      <div className="container max-w-xs sm:max-w-sm md:max-w-2xl">
+        <div className="mb-4 rounded-full bg-gray-100 dark:bg-customBgDark-500 w-[8rem] h-[8rem] flex justify-center content-center mx-auto">
+          <FontAwesomeIcon
+            icon={faCheck}
+            style={{
+              fontSize: "6rem"
+            }}
+            className="m-4 sm:text-sm md:text-lg lg:text-2xl text-green-500 dark:text-green-600"
+          />
+        </div>
+        <H1 className="m-auto text-3xl w-fit font-bold mb-6 motion-preset-confetti animate-confetti-loop">
+          Checkout Successful!
+        </H1>
+        <P className="text-gray-700">Thank you for your purchase.</P>
+        <P className="text-gray-700 mt-4">
+          We appreciate your trust in us. A confirmation email has been sent to
+          your inbox with the details of your order.
+        </P>
+        <P className="text-gray-700">
+          If you have any questions, feel free to contact our support team.
+        </P>
       </div>
-      <H1 className="m-auto text-3xl w-fit font-bold mb-6 motion-preset-confetti animate-confetti-loop">
-        Checkout Successful!
-      </H1>
-      <P className="text-gray-700">Thank you for your purchase.</P>
-      <P className="text-gray-700 mt-4">
-        We appreciate your trust in us. A confirmation email has been sent to
-        your inbox with the details of your order.
-      </P>
-      <P className="text-gray-700">
-        If you have any questions, feel free to contact our support team.
-      </P>
 
       {/* Continue Shopping Button */}
       <div>
@@ -56,7 +58,7 @@ const CheckoutSuccessPage: React.FC = () => {
       </div>
 
       {/* Order Summary */}
-      <div className="bg-gray-100 dark:bg-customBgDark-600 p-4 rounded-lg shadow-md max-w-lg w-full flex flex-col justify-center">
+      <div className="bg-gray-100 dark:bg-customBgDark-600 p-4 rounded-lg shadow-md max-w-xs sm:max-w-lg w-full flex flex-col justify-center">
         <H2 className="text-xl font-bold mb-4">Your Order</H2>
         <ul className="space-y-4">
           {order.map((item) => (
@@ -81,7 +83,7 @@ const CheckoutSuccessPage: React.FC = () => {
 
               {/* Item Price */}
               <P className="font-bold text-gray-800">
-                ${(item.quantity * item.price).toFixed(2)}
+                {(item.quantity * item.price).toFixed(2)} kr
               </P>
             </li>
           ))}
@@ -90,10 +92,11 @@ const CheckoutSuccessPage: React.FC = () => {
         {/* Total Price */}
         <div className="mt-6 border-t pt-4">
           <P className="text-lg font-bold">
-            Total: $
+            Total:
             {order
               .reduce((total, item) => total + item.quantity * item.price, 0)
-              .toFixed(2)}
+              .toFixed(2)}{" "}
+            kr
           </P>
         </div>
       </div>

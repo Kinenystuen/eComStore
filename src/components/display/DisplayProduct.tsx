@@ -80,7 +80,7 @@ const DisplayProduct = () => {
       />
       <div className="container mx-auto px-4">
         <Breadcrumb items={breadcrumbItems} />
-        <div className="mx-auto max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
+        <div className="mx-auto max-w-3xl md:max-w-4xl lg:max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
           <div
             className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh] max-h-[30rem]"
             onClick={() => handleImageClick()}
@@ -99,7 +99,7 @@ const DisplayProduct = () => {
               </div>
               {product.reviews && product.reviews.length > 0 && (
                 <div className="m-2 flex justify-center items-center">
-                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-gray-700 text-lg">★</span>
                   <span className="ml-2 text-gray-700 dark:text-white font-medium">
                     {product.rating}/5
                   </span>
@@ -111,27 +111,29 @@ const DisplayProduct = () => {
               {product.tags.map((tag: string, index: number) => (
                 <span
                   key={index}
-                  className="bg-gray-100 dark:bg-customBgDark-300 text-gray-700 dark:text-whiteFont-400 text-xs px-2 py-1 rounded"
+                  className="font-bold bg-gray-100 dark:bg-zinc-900 text-gray-700 dark:text-white text-xs px-2 py-1 rounded"
                 >
                   {tag}
                 </span>
               ))}
             </div>
+            {/* Description */}
             <P className="flex-grow text-gray-700 dark:text-whiteFont-500 ">
               {product.description}
             </P>
+            {/* Price */}
             <div className="m-1">
               <div className="flex gap-2">
                 {product.discountedPrice < product.price && (
-                  <span className="text-lg font-bold text-green-500 break-words">
-                    ${product.discountedPrice.toFixed(2)}
+                  <span className="text-lg font-bold text-green-700 dark:text-green-500 break-words">
+                    {product.discountedPrice.toFixed(2)} kr
                   </span>
                 )}
                 {product.discountedPrice < product.price && (
                   <CalcDiscount
                     price={product.price}
                     discountedPrice={product.discountedPrice}
-                    className="text-gray-900 dark:text-whiteFont-600 text-sm"
+                    className="text-gray-600 dark:text-whiteFont-600 text-center text-sm"
                   />
                 )}
               </div>
@@ -141,7 +143,7 @@ const DisplayProduct = () => {
                 {product.discountedPrice >= product.price ? (
                   <span>${product.price}</span>
                 ) : (
-                  <span>Original Price: ${product.price}</span>
+                  <span>Original Price: {product.price} kr</span>
                 )}
               </P>
             </div>
@@ -152,7 +154,7 @@ const DisplayProduct = () => {
                 title={product.title}
                 price={product.discountedPrice}
                 image={product.image}
-                className="my-4"
+                className="content-end justify-center items-center"
               />
 
               {/* Show Go to Cart Button if quantity is 1 or more */}
@@ -190,7 +192,7 @@ const DisplayProduct = () => {
       {/* Reviews */}
       {product.reviews && product.reviews.length > 0 ? (
         <div className="bg-customBgDark-200 dark:bg-customBgDark-600 py-4 pb-20 mt-20">
-          <div className="mx-auto max-w-4xl flex flex-col gap-4 mt-8 ">
+          <div className="mx-auto px-8 max-w-3xl md:max-w-4xl flex flex-col gap-4 mt-8 ">
             <H2 className="text-xl font-semibold mb-4">Reviews</H2>
             <ul className="space-y-4">
               {product.reviews.map((review) => (
@@ -199,7 +201,7 @@ const DisplayProduct = () => {
                   className="border border-customBgDark-700 rounded-lg p-4 bg-gray-50 dark:bg-customBgDark-500"
                 >
                   <P className="text-sm font-semibold">{review.username}</P>
-                  <P className="text-yellow-500">{`★`.repeat(review.rating)}</P>
+                  <P className="text-gray-700">{`★`.repeat(review.rating)}</P>
                   <P className="text-gray-700 mt-2">{review.description}</P>
                 </li>
               ))}
@@ -208,9 +210,9 @@ const DisplayProduct = () => {
         </div>
       ) : (
         <div className="bg-customBgDark-200 dark:bg-customBgDark-600 py-4 pb-20 mt-20">
-          <div className="container mx-auto max-w-4xl flex flex-col gap-4 mt-8">
+          <div className="container mx-auto px-8 max-w-3xl md:max-w-4xl flex flex-col gap-4 mt-8">
             <H2 className="text-xl font-semibold mb-4">Reviews</H2>
-            <P className="text-gray-500">
+            <P className="text-customBgDark-700">
               No reviews available for this product.
             </P>
           </div>

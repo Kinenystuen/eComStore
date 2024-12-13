@@ -28,7 +28,8 @@ const CartPageDisplay = ({
         {state.items.length > 0 && (
           <Button
             onClick={clearCart}
-            className="text-white text-sm px-4 rounded"
+            buttonType="transparent"
+            className="text-customBgDark-900 underline underline-offset-4 text-sm px-4"
           >
             Clear cart
           </Button>
@@ -65,11 +66,11 @@ const CartPageDisplay = ({
                     key={item.id}
                     title={`Go to ${item.title}`}
                   >
-                    <H2 className="text-base sm:font-bold ps-0">
+                    <H2 className="text-base text-wrap sm:font-bold ps-0">
                       {item.title}
                     </H2>
                   </Link>
-                  <P>Price: ${item.price}</P>
+                  <P>Price: {item.price} kr</P>
                   <P>Quantity: {item.quantity}</P>
                 </div>
 
@@ -95,6 +96,9 @@ const CartPageDisplay = ({
                     >
                       -
                     </Button>
+                    <P className="hidden md:flex items-center">
+                      {item.quantity}
+                    </P>
                     <Button
                       onClick={() => incrementItem(item.id)}
                       className="px-3 py-1 rounded"
@@ -110,7 +114,7 @@ const CartPageDisplay = ({
           </div>
           <div className="justify-end content-end items-end mt-20">
             <P className="dark:text-whiteFont-300 font-bold text-lg mt-6">
-              Total: ${totalPrice.toFixed(2)}
+              Total: {totalPrice.toFixed(2)} kr
             </P>
             <div className="flex justify-between gap-2 my-4  text-sm sm:text-md">
               <Button buttonType="blue" ariaLabel="continue shopping">
