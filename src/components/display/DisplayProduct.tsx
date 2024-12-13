@@ -201,7 +201,7 @@ const DisplayProduct = () => {
                   className="border border-customBgDark-700 rounded-lg p-4 bg-gray-50 dark:bg-customBgDark-500"
                 >
                   <P className="text-sm font-semibold">{review.username}</P>
-                  <P className="text-yellow-500">{`★`.repeat(review.rating)}</P>
+                  <P className="text-gray-700">{`★`.repeat(review.rating)}</P>
                   <P className="text-gray-700 mt-2">{review.description}</P>
                 </li>
               ))}
