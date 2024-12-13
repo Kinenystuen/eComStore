@@ -28,7 +28,8 @@ const CartPageDisplay = ({
         {state.items.length > 0 && (
           <Button
             onClick={clearCart}
-            className="text-white text-sm px-4 rounded"
+            buttonType="transparent"
+            className="text-customBgDark-900 underline underline-offset-4 text-sm px-4"
           >
             Clear cart
           </Button>
