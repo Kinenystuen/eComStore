@@ -31,8 +31,8 @@
   --customGreenLight: #8fa984;
 
   /* Use light mode autofill colors */
-  --autofill-bg-color: var(--autofill-bg-light);
-  --autofill-text-color: var(--autofill-text-light);
+  --autofill-bg-color: var(--background-color);
+  --autofill-text-color: var(--font-color);
 }
 
 .dark {
@@ -55,12 +55,26 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--autofill-text-color);
-  color: var(--autofill-text-color);
-  background-color: var(--autofill-bg-color);
+  -webkit-text-fill-color: var(--autofill-text-color) !important;
+  color: var(--autofill-text-color) !important;
+  background-color: var(--autofill-bg-color) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--autofill-bg-color) inset !important;
+  background-clip: padding-box !important;
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-box-shadow: 0 0 0px 1000px var(--autofill-bg-color) inset;
 }
+
+input {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+input:focus {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  outline: none;
+}
+
+
 
 
 html {
