@@ -34,7 +34,7 @@ function Contact() {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-lg bg-white dark:bg-customBgDark-600 rounded-lg shadow-lg my-5">
+    <div className="container mx-auto p-4 max-w-xs lg:max-w-lg bg-white dark:bg-customBgDark-600 rounded-lg shadow-lg my-5">
       <MetaTags
         title={`Contact us - eComStore`}
         keywords="eComStore, products, details, shop online, contact us"
@@ -83,7 +83,7 @@ function Contact() {
           </div>
         </div>
       ) : (
-        <div className="container mx-auto max-w-lg  rounded-lg my-2">
+        <div className="container mx-auto  max-w-xs md:max-w-lg  rounded-lg my-2">
           <H2 className="text-xl font-semibold ps-0 mb-6">Contact Us</H2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Full Name */}
