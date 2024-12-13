@@ -37,7 +37,7 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
                 to={link.route}
                 className={`transform duration-300 rounded-md py-2 px-3 text-sm font-semibold ${
                   isActive
-                    ? "bg-blue-500 text-white hover:text-gray-800 dark:bg-customBgDark-400 dark:text-gray-100 dark:hover:text-white"
+                    ? "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white"
                     : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-customBgDark-400 hover:rounded-md"
                 }`}
               >
@@ -49,7 +49,7 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
           })}
         </div>
 
-        {/* Mobilmeny-knapp og CartIcon */}
+        {/* Mobile menu-btn and CartIcon */}
         <div className="flex items-center gap-4 lg:flex lg:flex-1 lg:justify-end">
           {/* Theme Toggle */}
           <div>
@@ -57,7 +57,7 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
           </div>
           {/* Cart Icon */}
           <div className="flex items-center">
-            <CartIcon itemCount={cartItemCount} />
+            <CartIcon link="/cart" itemCount={cartItemCount} />
           </div>
 
           {/* Mobile menu-btn */}
@@ -96,7 +96,7 @@ const HeaderNav = ({ cartItemCount }: { cartItemCount: number }) => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`button block py-2 px-3 rounded-lg text-base font-semibold ${
                   isActive
-                    ? "bg-blue-500 text-white hover:text-gray-800 dark:text-whiteFont-500 dark:hover:text-whiteFont-100"
+                    ? "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white"
                     : "text-gray-700 hover:bg-gray-100 dark:text-whiteFont-600 dark:hover:text-white dark:hover:bg-customBgDark-400"
                 }`}
               >
