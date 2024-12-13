@@ -99,7 +99,7 @@ const DisplayProduct = () => {
               </div>
               {product.reviews && product.reviews.length > 0 && (
                 <div className="m-2 flex justify-center items-center">
-                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-gray-700 text-lg">★</span>
                   <span className="ml-2 text-gray-700 dark:text-white font-medium">
                     {product.rating}/5
                   </span>
@@ -111,7 +111,7 @@ const DisplayProduct = () => {
               {product.tags.map((tag: string, index: number) => (
                 <span
                   key={index}
-                  className="bg-gray-100 dark:bg-customBgDark-300 text-gray-700 dark:text-whiteFont-400 text-xs px-2 py-1 rounded"
+                  className="font-bold bg-gray-100 dark:bg-zinc-900 text-gray-700 dark:text-white text-xs px-2 py-1 rounded"
                 >
                   {tag}
                 </span>
@@ -125,7 +125,7 @@ const DisplayProduct = () => {
             <div className="m-1">
               <div className="flex gap-2">
                 {product.discountedPrice < product.price && (
-                  <span className="text-lg font-bold text-green-500 break-words">
+                  <span className="text-lg font-bold text-green-700 dark:text-green-500 break-words">
                     {product.discountedPrice.toFixed(2)} kr
                   </span>
                 )}
@@ -154,7 +154,7 @@ const DisplayProduct = () => {
                 title={product.title}
                 price={product.discountedPrice}
                 image={product.image}
-                className="my-4"
+                className="content-end justify-center items-center"
               />
 
               {/* Show Go to Cart Button if quantity is 1 or more */}
@@ -212,7 +212,7 @@ const DisplayProduct = () => {
         <div className="bg-customBgDark-200 dark:bg-customBgDark-600 py-4 pb-20 mt-20">
           <div className="container mx-auto px-8 max-w-3xl md:max-w-4xl flex flex-col gap-4 mt-8">
             <H2 className="text-xl font-semibold mb-4">Reviews</H2>
-            <P className="text-gray-500">
+            <P className="text-customBgDark-700">
               No reviews available for this product.
             </P>
           </div>
