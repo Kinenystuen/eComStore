@@ -5,20 +5,34 @@ import { useNavigate } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import Button from "../Button";
 import GoBackBtn from "./GoBackBtn";
+import { BreadcrumbProps } from "../../../library/types";
 
-interface BreadcrumbItem {
-  label: string;
-  href?: string;
-  current?: boolean;
-  isDropdown?: boolean;
-  dropdownItems?: { label: string; href?: string }[];
-}
-
-interface BreadcrumbProps {
-  items: BreadcrumbItem[];
-  goBack?: boolean;
-  className?: string;
-}
+/**
+ * Component to display a breadcrumb navigation bar with links and/or dropdowns
+ * @param items Array of objects with label, href, current, isDropdown and dropdownItems
+ * @param goBack Boolean to display a go back button
+ * @param className Additional classes
+ * @example
+ * ```tsx
+ * <Breadcrumb
+ *  items={[
+ *   { label: "Home", href: "/" },
+ *   { label: "Product", current: true }
+ *   {
+ *      label: "Site",
+ *      isDropdown: true,
+ *      dropdownItems: [
+ *        { label: "Site", href: "/path/path" },
+ *        { label: "Site", href: "/path/path" }
+ *      ]
+ *    }
+ *  ]}
+ * goBack={true}
+ * className="container max-w-8xl mx-auto px-4"
+ * />
+ * ```
+ * @returns JSX.Element
+ */
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
   items,
@@ -55,7 +69,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 ) : item.href && !item.current ? (
                   <Button
                     onClick={() => handleNavigate(item.href!)}
-                    className="inline-flex items-center text-sm p-[0.25rem] bg-transparent text-BtnColor-600 dark:bg-transparent hover:text-white dark:text-BtnColor-200 dark:hover:text-white"
+                    buttonType="transparent"
+                    className="inline-flex items-center text-sm p-[0.25rem]"
                   >
                     {index === 0 && (
                       <FontAwesomeIcon
