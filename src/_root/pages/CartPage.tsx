@@ -28,7 +28,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <MetaTags
         title={`Shopping cart - eComStore`}
         keywords="eComStore, products, shopping cart, cart, checkout, shop online"
