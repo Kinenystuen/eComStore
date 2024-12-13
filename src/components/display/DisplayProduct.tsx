@@ -117,21 +117,23 @@ const DisplayProduct = () => {
                 </span>
               ))}
             </div>
+            {/* Description */}
             <P className="flex-grow text-gray-700 dark:text-whiteFont-500 ">
               {product.description}
             </P>
+            {/* Price */}
             <div className="m-1">
               <div className="flex gap-2">
                 {product.discountedPrice < product.price && (
                   <span className="text-lg font-bold text-green-500 break-words">
-                    ${product.discountedPrice.toFixed(2)}
+                    {product.discountedPrice.toFixed(2)} kr
                   </span>
                 )}
                 {product.discountedPrice < product.price && (
                   <CalcDiscount
                     price={product.price}
                     discountedPrice={product.discountedPrice}
-                    className="text-gray-900 dark:text-whiteFont-600 text-sm"
+                    className="text-gray-600 dark:text-whiteFont-600 text-center text-sm"
                   />
                 )}
               </div>
@@ -141,7 +143,7 @@ const DisplayProduct = () => {
                 {product.discountedPrice >= product.price ? (
                   <span>${product.price}</span>
                 ) : (
-                  <span>Original Price: ${product.price}</span>
+                  <span>Original Price: {product.price} kr</span>
                 )}
               </P>
             </div>

@@ -54,30 +54,34 @@ const DisplayData: React.FC<DisplayDataProps> = ({ data, totalItems }) => {
               </p>
 
               {/* Prices */}
-              {product.discountedPrice < product.price && (
-                <CalcDiscount
-                  price={product.price}
-                  discountedPrice={product.discountedPrice}
-                  className="text-gray-900 dark:text-whiteFont-600 text-sm mt-4"
-                />
-              )}
-              <div className="mt-1 flex flex-wrap items-baseline gap-2">
-                <div className="flex flex-col gap-2">
+              <div className="m-1">
+                <div className="flex gap-2">
                   {product.discountedPrice < product.price && (
                     <span className="text-lg font-bold text-green-500 break-words">
-                      ${product.discountedPrice.toFixed(2)}
+                      {product.discountedPrice.toFixed(2)} kr
                     </span>
                   )}
+                  {product.discountedPrice < product.price && (
+                    <CalcDiscount
+                      price={product.price}
+                      discountedPrice={product.discountedPrice}
+                      className="text-gray-600 dark:text-whiteFont-600 text-center text-sm"
+                    />
+                  )}
                 </div>
-                <span
-                  className={`text-lg font-bold ${
-                    product.discountedPrice < product.price
-                      ? "line-through text-gray-700 dark:text-whiteFont-600 text-sm"
-                      : "text-gray-900 dark:text-whiteFont-500"
-                  } break-words`}
+                <P
+                  className={`text-gray-700 dark:text-whiteFont-500 ${product.discountedPrice < product.price && `line-through dark:text-whiteFont-600 text-sm`}`}
                 >
-                  ${product.price.toFixed(2)}
-                </span>
+                  <span
+                    className={`text-lg font-bold ${
+                      product.discountedPrice < product.price
+                        ? "line-through text-gray-700 dark:text-whiteFont-600 text-sm"
+                        : "text-gray-900 dark:text-whiteFont-500"
+                    } break-words`}
+                  >
+                    {product.price.toFixed(2)} kr
+                  </span>
+                </P>
               </div>
 
               {/* Rating */}
