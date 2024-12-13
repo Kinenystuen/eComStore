@@ -80,7 +80,7 @@ const DisplayProduct = () => {
       />
       <div className="container mx-auto px-4">
         <Breadcrumb items={breadcrumbItems} />
-        <div className="mx-auto max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
+        <div className="mx-auto max-w-3xl md:max-w-4xl lg:max-w-8xl flex flex-col sm:flex-row gap-4 mt-4">
           <div
             className="sm:flex-1 relative cursor-pointer h-[40vh] sm:h-[60vh] max-h-[30rem]"
             onClick={() => handleImageClick()}
@@ -190,7 +190,7 @@ const DisplayProduct = () => {
       {/* Reviews */}
       {product.reviews && product.reviews.length > 0 ? (
         <div className="bg-customBgDark-200 dark:bg-customBgDark-600 py-4 pb-20 mt-20">
-          <div className="mx-auto max-w-4xl flex flex-col gap-4 mt-8 ">
+          <div className="mx-auto px-8 max-w-3xl md:max-w-4xl flex flex-col gap-4 mt-8 ">
             <H2 className="text-xl font-semibold mb-4">Reviews</H2>
             <ul className="space-y-4">
               {product.reviews.map((review) => (
@@ -208,7 +208,7 @@ const DisplayProduct = () => {
         </div>
       ) : (
         <div className="bg-customBgDark-200 dark:bg-customBgDark-600 py-4 pb-20 mt-20">
-          <div className="container mx-auto max-w-4xl flex flex-col gap-4 mt-8">
+          <div className="container mx-auto px-8 max-w-3xl md:max-w-4xl flex flex-col gap-4 mt-8">
             <H2 className="text-xl font-semibold mb-4">Reviews</H2>
             <P className="text-gray-500">
               No reviews available for this product.
